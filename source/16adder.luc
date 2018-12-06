@@ -1,0 +1,31 @@
+module adder_16bits (    // adder module implements both addition operation (ADD) and subtraction operation (SUB) 
+    input a[16],
+    input b[16],
+    input alufn[2],
+    output out[16],
+    output z,
+    output v,
+    output n
+  ) {  
+   
+  sig what[16];  // we can't use out because out is our output. it can not be regarded as a variable for later equation
+                  // so we create an media called what[16]
+  always {
+    case(alufn[0]) {
+      1b0:
+        what = a + b;    // addition 
+      1b1:
+        what = a - b;    // subtraction 
+   
+      default:
+        what = 0;
+        }
+    
+    // calcation of the para: z(zero),v(overflow),n(negative)
+    n = what[15];                                               
+    v = (a[15]&b[15]&(~what[15]))|((~a[15])&(~b[15])&what[15]);
+    z = ~|what;
+    out = what;
+    
+  }
+}

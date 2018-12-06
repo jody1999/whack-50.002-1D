@@ -1,0 +1,37 @@
+module lfsr_randomizer (
+    input clk,  // clock
+    input rst,  // reset  
+    input ctr,
+    output result_8bit[8]
+  ) {
+  dff count[8](.clk(ctr),.rst(rst));
+  
+  always {    
+    result_8bit[0] = count.q[0];
+  
+    count.d[1] = count.q[0];
+    result_8bit[1] = count.q[1];
+  
+    count.d[2] = count.q[1];
+    result_8bit[2] = count.q[2];
+   
+    count.d[3] = count.q[2];
+    result_8bit[3] = count.q[3];
+   
+    count.d[4] = count.q[3];
+    result_8bit[4] = count.q[4];
+    
+    count.d[5] = count.q[4];
+    result_8bit[5] = count.q[5];
+    
+    count.d[6] = count.q[5];
+    result_8bit[6] = count.q[6];
+    
+    count.d[7] = count.q[6];
+    result_8bit[7] = count.q[7];
+
+    count.d[0] = count.q[7] ~^ count.q[5] ~^ count.q[4] ~^ count.q[3];
+  
+  }
+ 
+  }

@@ -1,0 +1,24 @@
+module mod_16 (        // mod module finds the remainder value of a & b 
+    input a[16],
+    input b[16],
+    input alufn[6],
+    output out[16]   
+  ) {
+
+  always {
+
+    case(alufn[5:0]) {
+      6b000111:
+        if (a<b){ 
+           out = a;        
+        }else{             // a mod b (get the remainder)
+          out = a - ( a / b ) * b;
+        }
+
+        
+      default:
+        out = 0;
+
+    }
+  }
+}

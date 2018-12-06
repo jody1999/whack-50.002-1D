@@ -1,0 +1,31 @@
+module getZVN (      // output cases 
+
+    input a[16],
+    input b[16],
+    input alufn[6],
+    input out[16],
+    output z,
+    output v,
+    output n
+  ) {
+
+  always {
+    z = 0;   //zero
+    n = 0;   //negative
+    v = 0;   //overflow
+     
+    case(alufn[0]){    // calculate the value of z,v,n by the value of a,b and sum of (a,b)
+      0: // add
+      z = ~|out;
+      n = out[15];
+      v = (a[15] & (!out[15]) & b[15]) | ((!a[15]) & out[15] & !b[15]);
+    
+      1: // sub
+      z = !(out[15]);
+      n = out[15];
+      v = (a[15] & (!out[15]) & !b[15]) | ((!a[15]) & out[15] & b[15]);
+    
+      }
+    
+  }
+}

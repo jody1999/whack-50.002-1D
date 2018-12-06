@@ -1,0 +1,34 @@
+module alumux (
+   
+    input a[16],
+    input b[16],
+    input c[16],
+    input d[16],
+    input sel,
+    output out[16]
+  ) {
+  combinedALU alu;
+  
+  always {
+    alu.a = 0;
+    alu.b = 0;
+    alu.alufn = 6b000000;
+    out = 000000;
+    
+    if(sel == 0){             // minus   00
+   
+    alu.a = a;
+    alu.b = b;
+    alu.alufn = 6b000001;
+    out = alu.out;  
+      }
+      else if(sel == 1){        // mod  01
+      alu.a = c;
+      alu.b = d;
+    alu.alufn = 6b000111;
+    out = alu.out; 
+    }
+    
+  
+  }
+}

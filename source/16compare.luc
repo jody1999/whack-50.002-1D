@@ -1,0 +1,31 @@
+module compare_16bits (        // compare module incorporates compare if equal, compare if less than, and compare if less than or equal
+   input alufn[6],
+   input a[16],
+   input b[16],
+
+   output out[16]  
+  ) {
+  
+  always {
+    out[15:0] = 0;
+
+    case(alufn[2:1]) {     // in LSB
+      2b01:                //A = B
+      if (a==b){
+        out[0] = 1;
+        }
+   
+      2b10:               //A < B
+      if (a<b){
+        out[0] = 1;
+        }
+      2b11:
+      if (a<b | a == b)   // A <= B 
+      {
+        out[0] = 1;
+        }
+    default:
+      out[0] = 0;
+    }
+  }
+}

@@ -1,0 +1,533 @@
+module mojo_top (
+    
+    input clk,              // 50MHz clock
+    input rst_n,            // reset button (active low)
+    //output led [8],         // 8 user controllable LEDs
+    //input cclk,             // configuration clock, AVR ready when high
+    output spi_miso,        // AVR SPI MISO
+    //input spi_ss,           // AVR SPI Slave Select
+    //input spi_mosi,         // AVR SPI MOSI
+    //input spi_sck,          // AVR SPI Clock
+    output spi_channel [4], // AVR general purpose pins (used by default to select ADC channel)
+    //input avr_tx,           // AVR TX (FPGA RX)
+    output avr_rx,          // AVR RX (FPGA TX)
+    //input avr_rx_busy,      // AVR RX buffer full
+    //output io_led [3][8],   // LEDs on IO Shield ( pattern here )
+    //output io_seg [8],      // 7-segment LEDs on IO Shield
+    //output io_sel [4],      // Digit select on IO Shield
+    //input io_button [5],    // 5 buttons on IO Shield
+    //input io_dip [3][8],     // DIP switches on IO Shield
+    input button[8],
+    
+    output display1[7],
+    output display2[7],
+    output display3[7],
+    output display4[7],
+    
+    output light[8]    // connect to the leds in the buttons
+  ) {
+  
+  alumux alumux;            // mux2 for integrated ALU functions 
+                            // 0 for substract, 1 for mod
+  sig rst;                  // reset signal
+  var i;                    // local temp variable for iterating through led_pattern
+
+  const TIMEOUT = d20;
+  sig shiwei[4];
+  sig gewei[4];
+  sig scoreShiwei[4];
+  sig scoreGewei[4];
+  
+  seven_seg seg1;
+  seven_seg seg2;
+  seven_seg seg3;
+  seven_seg seg4;
+  
+  .clk(clk) {
+    
+    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // clock. This ensures the entire FPGA comes out of reset at the same time.
+    
+    reset_conditioner reset_cond;
+    edge_detector edge_detector (#RISE(1), #FALL(0));
+    
+    .rst(rst) {
+      
+      //multi_seven_seg multi_seg;
+      multi_dec_ctr dec_ctr;
+      
+      lfsr_randomizer randomizer;
+ 
+      counter ctr (#SIZE(1), #DIV(24));
+      dff led_pattern[8](#INIT(0));   // pattern for LED
+      dff temporaryMole[8](#INIT(0));
+      dff gameInitializer[1](#INIT(1));    // small "state" signifying start of game
+      dff buttonArray[8](#INIT(0));
+      dff score[8](#INIT(0));
+      dff moleLeft[8](#INIT(99));
+      
+      dff getRdmNum[1](#INIT(1));
+      
+      pushButton buttons;
+      
+    }
+    
+  }
+  
+  dff timeCounter[7](#INIT(20), .clk(clk), .rst(rst));    // d flip flop with initial counter at 5
+  
+  
+  .clk(clk){ 	// Overall state
+    .rst(rst){
+      
+      fsm oState = {INITIAL, READY, START, COUNTDOWN,  END1,END2, END3, LEVEL1, LEVEL2, LEVEL3, LEVEL4, CHECK,CHECKM};
+      dff halfsecond[32](#INIT(0));
+    }
+  }
+  
+  always{
+    
+    /* default alu */
+    alumux.a = h00;
+    alumux.b = h00;
+    alumux.c = h00;
+    alumux.d = h00;
+    alumux.sel = h00;
+    
+    reset_cond.in = ~rst_n;   // input raw inverted reset signal
+    rst = reset_cond.out;     // conditioned reset
+    
+    //led = c{3b0, button};  // connect buttons to LEDs
+    spi_miso = bz;            // not using SPI
+    spi_channel = bzzzz;      // not using flags
+    avr_rx = bz;              // not using serial port
+    //io_seg=8hff;
+    
+    //default display
+    display1 = 8hff;
+    display2 = 8hff;
+    display3 = 8hff;
+    display4 = 8hff;
+    
+    
+    
+    edge_detector.in = ctr.value;
+    dec_ctr.inc = edge_detector.out;
+    //seg.values = dec_ctr.digits;
+    
+    //io_seg = ~seg.seg; // connect segments to the driver
+    //io_sel = ~seg.sel; // connect digit select to the driver
+    //io_led = io_dip;   // connect the DIP switches to the LEDs
+   
+    
+    
+    shiwei = moleLeft.q / 10; //get the decade of the number left of moles for display
+    
+    alumux.c = moleLeft.q;
+    alumux.d = 4b1010;
+    alumux.sel = 1;  //mod 
+    gewei = alumux.out[3:0];  //get the unit of  the number of moles left for display, make use of ALU function mod
+    
+    //gewei = moleLeft.q - (moleLeft.q / 10 * 10);  //original equation
+    
+    scoreShiwei = score.q / 10;  //get the decade of score for display
+    scoreGewei = score.q - (score.q / 10 * 10);   //get the unit of score for display
+    
+    //multi_seg.values = {scoreShiwei, scoreGewei, shiwei, gewei};  used io_seg for testing and debugging
+    
+    seg1.char = shiwei;
+    seg2.char = gewei;
+    seg3.char = scoreShiwei;
+    seg4.char = scoreGewei;
+    
+    display1 = seg1.segs; // display the decade of  the number of moles left
+    display2 = seg2.segs; // display the unit of  the number of moles left
+    display3 = seg3.segs; // display the decade of score
+    display4 = seg4.segs; // display the unit of the score
+    
+    
+    light[7:0] = 00000000;
+    
+    buttons.button[7:0] = button[7:0];
+    
+    /* randomiser */
+    randomizer.ctr = ctr.value;
+ 
+    //led[7:0] = led_pattern.q; //debug 
+    
+    if (oState.q!=oState.START){  
+      
+      halfsecond.d = halfsecond.q + 1;
+      if (halfsecond.q >= d25000000){  //  0.5 second has passed
+        
+        alumux.a = timeCounter.q;
+        alumux.b = 1;
+        alumux.sel = 0;  // SUB
+        timeCounter.d = alumux.out[3:0];
+        halfsecond.d = 32d0;
+      }
+    }
+    
+    for (i=0;i<8;i++){
+      
+      buttonArray.d[i] = button[i];
+      // link to the external light
+      light[i] = led_pattern.q[i];
+    }
+    
+    case(oState.q){
+      
+      oState.INITIAL:
+        temporaryMole.d = 8b00000000;
+        if (gameInitializer.q == 1){
+          led_pattern.d[0] = 1;
+          led_pattern.d[1] = 1;
+          led_pattern.d[2] = 1;
+          led_pattern.d[3] = 1;
+          led_pattern.d[4] = 1;
+          led_pattern.d[5] = 1;
+          led_pattern.d[6] = 1;
+          led_pattern.d[7] = 1;
+          timeCounter.d = TIMEOUT;
+          gameInitializer.d = 0;
+        }
+        
+        /* LEVEL1 for input */
+        if (button[7:0] != 8b00000000){
+          oState.d = oState.START;
+        }
+      
+      oState.START:
+      
+        /* reset timer */
+        timeCounter.d = TIMEOUT;
+        if (score.q < 5){ //0-9
+          
+          if (getRdmNum.q == 1){   // check whether this makes a new pattern appear
+            /* output randomiser here */
+            led_pattern.d = c{randomizer.result_8bit[5],
+              0,
+              randomizer.result_8bit[3],
+              0,
+              0,
+              0,
+              randomizer.result_8bit[1],
+              0};
+            temporaryMole.d = c{randomizer.result_8bit[5],
+              0,
+              randomizer.result_8bit[3],
+              0,
+              0,
+              0,
+              randomizer.result_8bit[1],
+              0};
+            getRdmNum.d = 0;    // reset to 0
+          }
+          
+          else{
+            
+            oState.d = oState.CHECKM;
+          }
+        }
+        /* accept rdm input */
+        else if (score.q < 30){ //score 10-29
+          
+          if (getRdmNum.q == 1){   // check whether this makes a new pattern appear
+            
+            led_pattern.d = c{randomizer.result_8bit[0],
+              0,
+              randomizer.result_8bit[2],
+              0,
+              randomizer.result_8bit[5],
+              randomizer.result_8bit[6],
+              0,
+              randomizer.result_8bit[7]
+            };
+            temporaryMole.d = c{randomizer.result_8bit[0],
+              0,
+              randomizer.result_8bit[2],
+              0,
+              randomizer.result_8bit[5],
+              randomizer.result_8bit[6],
+              0,
+              randomizer.result_8bit[7]
+            };
+            
+            getRdmNum.d = 0;    // reset to 0
+          }
+          else{
+            
+            
+            oState.d = oState.CHECKM;
+          }
+          
+        }else if(score.q < 60){ //30-59
+          if (getRdmNum.q == 1){   // check whether this makes a new pattern appear
+            
+            /* output randomiser here */
+            led_pattern.d = randomizer.result_8bit;
+            temporaryMole.d = randomizer.result_8bit;
+            
+            getRdmNum.d = 0;    // reset to 0
+          }
+          else{
+            
+            
+            oState.d = oState.CHECKM;
+            
+          }
+        }else{
+          if (getRdmNum.q == 1){   // check whether this makes a new pattern appear
+            
+            /* output randomiser here */
+            led_pattern.d = randomizer.result_8bit;
+            temporaryMole.d = randomizer.result_8bit;
+            
+            getRdmNum.d = 0;    // reset to 0
+            
+          }
+          else{
+            
+            oState.d = oState.CHECKM;
+          }
+          
+        }
+      oState.CHECKM:
+        if (moleLeft.q <= 0){
+          oState.d = oState.END1;
+        }else{
+          if(temporaryMole.q[7:0] == 8b00000001 | temporaryMole.q[7:0] ==8b00000010 | temporaryMole.q[7:0] ==8b00000100 | temporaryMole.q[7:0] ==8b00001000 |temporaryMole.q[7:0] == 8b00010000
+            | temporaryMole.q[7:0] ==8b00100000 | temporaryMole.q[7:0] ==8b01000000 |temporaryMole.q[7:0] == 8b01000000 )
+          {
+            moleLeft.d = moleLeft.q - 1 ;
+          }else if (temporaryMole.q[7:0] == 8b00000011 |temporaryMole.q[7:0] == 8b00000101 |temporaryMole.q[7:0] == 8b00000110 |temporaryMole.q[7:0] == 8b00001001 |temporaryMole.q[7:0] ==8b00001010 |temporaryMole.q[7:0] ==  8b00001100 |temporaryMole.q[7:0] ==  8b00010001
+            |temporaryMole.q[7:0] == 8b00010010|temporaryMole.q[7:0] == 8b00010100|temporaryMole.q[7:0] == 8b00011000|temporaryMole.q[7:0] == 8b00100001|temporaryMole.q[7:0] == 8b00100010|temporaryMole.q[7:0] == 8b00100100|temporaryMole.q[7:0] == 8b00101000|temporaryMole.q[7:0] == 8b00110000|temporaryMole.q[7:0] == 8b01000001
+            |temporaryMole.q[7:0] == 8b01000010|temporaryMole.q[7:0] == 8b01000100|temporaryMole.q[7:0] == 8b01001000|temporaryMole.q[7:0] == 8b01010000|temporaryMole.q[7:0] == 8b01100000|temporaryMole.q[7:0] == 8b10000001|temporaryMole.q[7:0] == 8b10000010|temporaryMole.q[7:0] == 8b10000100|temporaryMole.q[7:0] == 8b10001000
+            |temporaryMole.q[7:0] == 8b10010000|temporaryMole.q[7:0] == 8b10100000|temporaryMole.q[7:0] == 8b11000000)
+          {
+            if (moleLeft.q < 2){
+              moleLeft.d = 0;
+            }else
+              moleLeft.d = moleLeft.q - 2 ;
+          }else if(temporaryMole.q[7:0] == 8b00000111|temporaryMole.q[7:0] == 8b00001011|temporaryMole.q[7:0] == 8b00001101|temporaryMole.q[7:0] == 8b00001110|temporaryMole.q[7:0] == 8b00010011|temporaryMole.q[7:0] == 8b00010101|temporaryMole.q[7:0] == 8b00010110|temporaryMole.q[7:0] == 8b00011001
+            |temporaryMole.q[7:0] == 8b00011010|temporaryMole.q[7:0] == 8b00011100|temporaryMole.q[7:0] == 8b00100011|temporaryMole.q[7:0] == 8b00100101|temporaryMole.q[7:0] == 8b00100110|temporaryMole.q[7:0] == 8b00101001|temporaryMole.q[7:0] == 8b00101010|temporaryMole.q[7:0] == 8b00101100|temporaryMole.q[7:0] == 8b00110001|temporaryMole.q[7:0] == 8b00110010
+            |temporaryMole.q[7:0] == 8b00110100|temporaryMole.q[7:0] == 8b00111000|temporaryMole.q[7:0] == 8b01000011|temporaryMole.q[7:0] == 8b01000101|temporaryMole.q[7:0] == 8b01000110|temporaryMole.q[7:0] == 8b01001001|temporaryMole.q[7:0] == 8b01001010|temporaryMole.q[7:0] == 8b01001100|temporaryMole.q[7:0] == 8b01010001|temporaryMole.q[7:0] == 8b01010010
+            |temporaryMole.q[7:0] == 8b01010100|temporaryMole.q[7:0] == 8b01011000|temporaryMole.q[7:0] == 8b01100001|temporaryMole.q[7:0] == 8b01100010|temporaryMole.q[7:0] == 8b01100100|temporaryMole.q[7:0] == 8b01101000|temporaryMole.q[7:0] == 8b01110000|temporaryMole.q[7:0] == 8b10000011|temporaryMole.q[7:0] == 8b10000101|temporaryMole.q[7:0] == 8b10000110
+            |temporaryMole.q[7:0] == 8b10001001|temporaryMole.q[7:0] == 8b10001010|temporaryMole.q[7:0] == 8b10001100|temporaryMole.q[7:0] == 8b10010001|temporaryMole.q[7:0] == 8b10010010|temporaryMole.q[7:0] == 8b10010100|temporaryMole.q[7:0] == 8b10011000|temporaryMole.q[7:0] == 8b10100001|temporaryMole.q[7:0] == 8b10100010|temporaryMole.q[7:0] == 8b10100100
+            |temporaryMole.q[7:0] == 8b10101000|temporaryMole.q[7:0] == 8b10110000|temporaryMole.q[7:0] == 8b11000001|temporaryMole.q[7:0] == 8b11000010|temporaryMole.q[7:0] == 8b11000100|temporaryMole.q[7:0] == 8b11001000|temporaryMole.q[7:0] == 8b11010000|temporaryMole.q[7:0] == 8b11100000)
+          {
+            if (moleLeft.q < 3){
+              moleLeft.d = 0;
+            }else
+              moleLeft.d = moleLeft.q - 3;
+          }else if (temporaryMole.q[7:0] == 8b00001111|temporaryMole.q[7:0] == 8b00010111|temporaryMole.q[7:0] == 8b00011011|temporaryMole.q[7:0] == 8b00011101|temporaryMole.q[7:0] == 8b00011110|temporaryMole.q[7:0] == 8b00100111|temporaryMole.q[7:0] == 8b00101011|temporaryMole.q[7:0] == 8b00101101
+            |temporaryMole.q[7:0] == 8b00101110|temporaryMole.q[7:0] == 8b00110011|temporaryMole.q[7:0] == 8b00110101|temporaryMole.q[7:0] == 8b00110110|temporaryMole.q[7:0] == 8b00111001|temporaryMole.q[7:0] == 8b00111010|temporaryMole.q[7:0] == 8b00111100|temporaryMole.q[7:0] == 8b01000111|temporaryMole.q[7:0] == 8b01001011|temporaryMole.q[7:0] == 8b01001101|temporaryMole.q[7:0] == 8b01001110
+            |temporaryMole.q[7:0] == 8b01010011|temporaryMole.q[7:0] == 8b01010101|temporaryMole.q[7:0] == 8b01010110|temporaryMole.q[7:0] == 8b01011001|temporaryMole.q[7:0] == 8b01011010|temporaryMole.q[7:0] == 8b01011100|temporaryMole.q[7:0] == 8b01100011|temporaryMole.q[7:0] == 8b01100101|temporaryMole.q[7:0] == 8b01100110|temporaryMole.q[7:0] == 8b01101001|temporaryMole.q[7:0] == 8b01101010
+            |temporaryMole.q[7:0] == 8b01101100|temporaryMole.q[7:0] == 8b01110001|temporaryMole.q[7:0] == 8b01110010|temporaryMole.q[7:0] == 8b01110100|temporaryMole.q[7:0] == 8b01111000|temporaryMole.q[7:0] == 8b10000111|temporaryMole.q[7:0] == 8b10001011|temporaryMole.q[7:0] == 8b10001101|temporaryMole.q[7:0] == 8b10001110|temporaryMole.q[7:0] == 8b10010011|temporaryMole.q[7:0] == 8b10010101
+            |temporaryMole.q[7:0] == 8b10010110|temporaryMole.q[7:0] == 8b10011001|temporaryMole.q[7:0] == 8b10011010|temporaryMole.q[7:0] == 8b10011100|temporaryMole.q[7:0] == 8b10100011|temporaryMole.q[7:0] == 8b10100101|temporaryMole.q[7:0] == 8b10100110|temporaryMole.q[7:0] == 8b10101001|temporaryMole.q[7:0] == 8b10101010|temporaryMole.q[7:0] == 8b10101100|temporaryMole.q[7:0] == 8b10110001
+            |temporaryMole.q[7:0] == 8b10110010|temporaryMole.q[7:0] == 8b10110100|temporaryMole.q[7:0] == 8b10111000|temporaryMole.q[7:0] == 8b11000011|temporaryMole.q[7:0] == 8b11000101|temporaryMole.q[7:0] == 8b11000110|temporaryMole.q[7:0] == 8b11001001|temporaryMole.q[7:0] == 8b11001010|temporaryMole.q[7:0] == 8b11001100|temporaryMole.q[7:0] == 8b11010001|temporaryMole.q[7:0] == 8b11010010
+            |temporaryMole.q[7:0] == 8b11010100|temporaryMole.q[7:0] == 8b11011000|temporaryMole.q[7:0] == 8b11100001|temporaryMole.q[7:0] == 8b11100010|temporaryMole.q[7:0] == 8b11100100|temporaryMole.q[7:0] == 8b11101000|temporaryMole.q[7:0] == 8b11110000)
+          {
+            if (moleLeft.q < 4){
+              moleLeft.d = 0;
+            }else
+              moleLeft.d = moleLeft.q - 4;
+          }else if (temporaryMole.q[7:0] == 8b00011111|temporaryMole.q[7:0] == 8b00101111|temporaryMole.q[7:0] == 8b00110111|temporaryMole.q[7:0] == 8b00111011|temporaryMole.q[7:0] == 8b00111101|temporaryMole.q[7:0] == 8b00111110|temporaryMole.q[7:0] == 8b01001111|temporaryMole.q[7:0] == 8b01010111
+            |temporaryMole.q[7:0] == 8b01011011|temporaryMole.q[7:0] == 8b01011101|temporaryMole.q[7:0] == 8b01011110|temporaryMole.q[7:0] == 8b01100111|temporaryMole.q[7:0] == 8b01101011|temporaryMole.q[7:0] == 8b01101101|temporaryMole.q[7:0] == 8b01101110|temporaryMole.q[7:0] == 8b01110011|temporaryMole.q[7:0] == 8b01110101|temporaryMole.q[7:0] == 8b01110110|temporaryMole.q[7:0] == 8b01111001
+            |temporaryMole.q[7:0] == 8b01111010|temporaryMole.q[7:0] == 8b01111100|temporaryMole.q[7:0] == 8b10001111|temporaryMole.q[7:0] == 8b10010111|temporaryMole.q[7:0] == 8b10011011|temporaryMole.q[7:0] == 8b10011101|temporaryMole.q[7:0] == 8b10011110|temporaryMole.q[7:0] == 8b10100111|temporaryMole.q[7:0] == 8b10101011|temporaryMole.q[7:0] == 8b10101101|temporaryMole.q[7:0] == 8b10101110
+            |temporaryMole.q[7:0] == 8b10110011|temporaryMole.q[7:0] == 8b10110101|temporaryMole.q[7:0] == 8b10110110|temporaryMole.q[7:0] == 8b10111001|temporaryMole.q[7:0] == 8b10111010|temporaryMole.q[7:0] == 8b10111100|temporaryMole.q[7:0] == 8b11000111|temporaryMole.q[7:0] == 8b11001011|temporaryMole.q[7:0] == 8b11001101|temporaryMole.q[7:0] == 8b11001110|temporaryMole.q[7:0] == 8b11010011
+            |temporaryMole.q[7:0] == 8b11010101|temporaryMole.q[7:0] == 8b11010110|temporaryMole.q[7:0] == 8b11011001|temporaryMole.q[7:0] == 8b11011010|temporaryMole.q[7:0] == 8b11011100|temporaryMole.q[7:0] == 8b11100011|temporaryMole.q[7:0] == 8b11100101|temporaryMole.q[7:0] == 8b11100110|temporaryMole.q[7:0] == 8b11101001|temporaryMole.q[7:0] == 8b11101010|temporaryMole.q[7:0] == 8b11101100
+            |temporaryMole.q[7:0] == 8b11110001|temporaryMole.q[7:0] == 8b11110010|temporaryMole.q[7:0] == 8b11110100|temporaryMole.q[7:0] == 8b11111000)
+          {
+            if (moleLeft.q < 5){
+              moleLeft.d = 0;
+            }else
+              moleLeft.d = moleLeft.q - 5;
+          }else if (temporaryMole.q[7:0] == 8b00111111|temporaryMole.q[7:0] == 8b01011111|temporaryMole.q[7:0] == 8b01101111|temporaryMole.q[7:0] == 8b01110111|temporaryMole.q[7:0] == 8b01111011|temporaryMole.q[7:0] == 8b01111101|temporaryMole.q[7:0] == 8b01111110|temporaryMole.q[7:0] == 8b10011111
+            |temporaryMole.q[7:0] == 8b10101111|temporaryMole.q[7:0] == 8b10110111|temporaryMole.q[7:0] == 8b10111011|temporaryMole.q[7:0] == 8b10111101|temporaryMole.q[7:0] == 8b10111110|temporaryMole.q[7:0] == 8b11001111|temporaryMole.q[7:0] == 8b11010111|temporaryMole.q[7:0] == 8b11011011|temporaryMole.q[7:0] == 8b11011101|temporaryMole.q[7:0] == 8b11011110|temporaryMole.q[7:0] == 8b11100111
+            |temporaryMole.q[7:0] == 8b11101011|temporaryMole.q[7:0] == 8b11101101|temporaryMole.q[7:0] == 8b11101110|temporaryMole.q[7:0] == 8b11110011|temporaryMole.q[7:0] == 8b11110101|temporaryMole.q[7:0] == 8b11110110|temporaryMole.q[7:0] == 8b11111001|temporaryMole.q[7:0] == 8b11111010|temporaryMole.q[7:0] == 8b11111100)
+          {
+            if (moleLeft.q < 6){
+              moleLeft.d = 0;
+            }else
+              moleLeft.d = moleLeft.q - 6;
+          }else if (temporaryMole.q[7:0] == 8b01111111|temporaryMole.q[7:0] == 8b10111111|temporaryMole.q[7:0] == 8b11011111|temporaryMole.q[7:0] == 8b11101111|temporaryMole.q[7:0] == 8b11110111|temporaryMole.q[7:0] == 8b11111011|temporaryMole.q[7:0] == 8b11111101|temporaryMole.q[7:0] == 8b11111110)
+          {
+            if (moleLeft.q < 7){
+              moleLeft.d = 0;
+            }else
+              moleLeft.d = moleLeft.q - 7;
+          }
+        }
+        if (score.q<5){
+          // goto LEVEL1
+          oState.d = oState.LEVEL1;
+        }
+        else if (score.q<30 ){
+          oState.d = oState.LEVEL2;
+          
+        }
+        else if (score.q<60) {
+          oState.d = oState.LEVEL3;
+          
+        }else{
+          oState.d = oState.LEVEL4;
+        }
+      
+      oState.LEVEL1:
+        
+        if (timeCounter.q <= 7b00000001){  // timeout condition
+          getRdmNum.d = 1;
+          oState.d = oState.START;
+        }
+        
+       else{
+          
+          if (moleLeft.q == 8b0){
+            oState.d = oState.END1;
+          } else{
+            if (button[7:0] != 00000000){
+              /* player has entered input */
+              oState.d = oState.CHECK;
+            }
+            else{            // timer more than 0
+              /* LEVEL1...*/
+              
+              oState.d = oState.LEVEL1;
+            }
+          }
+        }
+      
+      oState.LEVEL2:
+        
+        if (timeCounter.q <= 7b0000001){  // timeout condition  (20)
+          getRdmNum.d = 1;
+          
+          oState.d = oState.START;
+        }
+        else{
+         if (moleLeft.q == 8b0){
+            oState.d = oState.END1;
+          } else{
+          if (button[7:0] != 00000000){
+            /* player has entered input */
+            oState.d = oState.CHECK;
+          }
+          else{    // timer more than 0
+            /* LEVEL1...*/
+            oState.d = oState.LEVEL2;
+          }
+        }
+          }
+      
+      oState.LEVEL3:
+        
+        if (timeCounter.q <= 7b0000101){  // timeout condition    (15)
+          getRdmNum.d = 1;
+          oState.d = oState.START;
+        }
+        else{
+         if (moleLeft.q == 8b0){
+            oState.d = oState.END1;
+          } else{
+          if (button[7:0] != 00000000){
+            /* player has entered input */
+            oState.d = oState.CHECK;
+          }
+          else{    // timer more than 0
+            /* LEVEL1...*/
+            oState.d = oState.LEVEL3;
+          }
+        }
+        }
+      
+      oState.LEVEL4:
+        
+        if (timeCounter.q <= 7b0001010){  // timeout condition   (10)
+          getRdmNum.d = 1;
+          oState.d = oState.START;
+        }
+        else{
+         if (moleLeft.q == 8b0){
+            oState.d = oState.END1;
+          } else{
+          if (button[7:0] != 00000000){
+            /* player has entered input */
+            oState.d = oState.CHECK;
+          }
+          else{    // timer more than 0
+            /* LEVEL1...*/
+            oState.d = oState.LEVEL4;
+          }
+        }
+          }
+      
+      oState.CHECK:
+        
+        for (i=0;i<8;i++){
+          if (led_pattern.q[i] == 1 && buttons.button_pressed[i] == 1) {  // only does check if input is 1
+            led_pattern.d[i] = 0;  // set the led_pattern to 0
+            /* increment score by 1 */
+            score.d = score.q + 1;
+          }
+        }
+        
+        if (score.q<5){
+          // goto LEVEL1
+          oState.d = oState.LEVEL1;
+          
+        }
+        else if (score.q<30 ){
+          oState.d = oState.LEVEL2;
+          
+        }
+        else if (score.q<60) {
+          oState.d = oState.LEVEL3;
+          
+        }else{
+          oState.d = oState.LEVEL4;
+        }
+      
+      
+      oState.END1:
+        led_pattern.d = 8b0000000;
+        getRdmNum.d = 0;
+        gameInitializer.d = 0;
+        
+        if (buttons.button_pressed != 8b00000000){ 
+            oState.d = oState.END2;
+          }
+        
+        
+        oState.END2:
+        led_pattern.d = 8b00000000;
+        getRdmNum.d = 0;
+        gameInitializer.d = 0;
+
+        
+        if (buttons.button_pressed != 8b00000000){  // press button to initialise the game
+                    
+            oState.d = oState.END3;
+          }
+        
+        
+        oState.END3:
+        led_pattern.d = 8b00000000;
+        getRdmNum.d = 0;
+        gameInitializer.d = 0;
+
+        
+        if (buttons.button_pressed[2] == 1){  // press button to initialise the game
+          /* reset score */
+          score.d = 0;
+          moleLeft.d = 8d99;
+          gameInitializer.d = 1;
+          temporaryMole.d = 8b00000000;
+          timeCounter.d = TIMEOUT;
+          oState.d = oState.INITIAL;
+          
+        }
+    }
+    
+  }
+}

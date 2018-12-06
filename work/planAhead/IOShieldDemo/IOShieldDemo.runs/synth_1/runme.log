@@ -1,0 +1,846 @@
+
+*** Running xst
+    with args -ifn "mojo_top_0.xst" -ofn "mojo_top_0.srp" -intstyle ise
+
+Reading design: mojo_top_0.prj
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/pipeline_29.v" into library work
+Parsing module <pipeline_29>.
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/getZVN_28.v" into library work
+Parsing module <getZVN_28>.
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/16shift_24.v" into library work
+Parsing module <shift_16bits_24>.
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/16multiplier_26.v" into library work
+Parsing module <multiplier_16bits_26>.
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/16mod_27.v" into library work
+Parsing module <mod_16_27>.
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/16compare_23.v" into library work
+Parsing module <compare_16bits_23>.
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/16boolean_25.v" into library work
+Parsing module <boolean_16bits_25>.
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/16adder_22.v" into library work
+Parsing module <adder_16bits_22>.
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/edge_detector_7.v" into library work
+Parsing module <edge_detector_7>.
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/decimal_counter_13.v" into library work
+Parsing module <decimal_counter_13>.
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/combinedALU_12.v" into library work
+Parsing module <combinedALU_12>.
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/button_conditioner_14.v" into library work
+Parsing module <button_conditioner_14>.
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/seven_seg_2.v" into library work
+Parsing module <seven_seg_2>.
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/reset_conditioner_6.v" into library work
+Parsing module <reset_conditioner_6>.
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/multi_dec_ctr_8.v" into library work
+Parsing module <multi_dec_ctr_8>.
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/lfsr_randomiser_9.v" into library work
+Parsing module <lfsr_randomizer_9>.
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/counter_10.v" into library work
+Parsing module <counter_10>.
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/button_11.v" into library work
+Parsing module <pushButton_11>.
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" into library work
+Parsing module <alumux_1>.
+Analyzing Verilog file "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" into library work
+Parsing module <mojo_top_0>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <mojo_top_0>.
+
+Elaborating module <alumux_1>.
+
+Elaborating module <combinedALU_12>.
+
+Elaborating module <adder_16bits_22>.
+
+Elaborating module <compare_16bits_23>.
+
+Elaborating module <shift_16bits_24>.
+
+Elaborating module <boolean_16bits_25>.
+
+Elaborating module <multiplier_16bits_26>.
+
+Elaborating module <mod_16_27>.
+
+Elaborating module <getZVN_28>.
+WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 34: Assignment to M_alu_first ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 35: Assignment to M_alu_second ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 36: Assignment to M_alu_third ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 37: Assignment to M_alu_fourth ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 39: Assignment to M_alu_z ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 40: Assignment to M_alu_v ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 41: Assignment to M_alu_n ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 42: Assignment to M_alu_led ignored, since the identifier is never used
+
+Elaborating module <seven_seg_2>.
+
+Elaborating module <reset_conditioner_6>.
+
+Elaborating module <edge_detector_7>.
+
+Elaborating module <multi_dec_ctr_8>.
+
+Elaborating module <decimal_counter_13>.
+WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 100: Assignment to M_dec_ctr_digits ignored, since the identifier is never used
+
+Elaborating module <lfsr_randomizer_9>.
+
+Elaborating module <counter_10>.
+
+Elaborating module <pushButton_11>.
+
+Elaborating module <button_conditioner_14>.
+
+Elaborating module <pipeline_29>.
+WARNING:HDLCompiler:413 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 173: Result of 8-bit expression is truncated to fit in 7-bit target.
+WARNING:HDLCompiler:413 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 174: Result of 8-bit expression is truncated to fit in 7-bit target.
+WARNING:HDLCompiler:413 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 175: Result of 8-bit expression is truncated to fit in 7-bit target.
+WARNING:HDLCompiler:413 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 176: Result of 8-bit expression is truncated to fit in 7-bit target.
+WARNING:HDLCompiler:413 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 179: Result of 8-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 184: Result of 8-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 185: Result of 8-bit expression is truncated to fit in 4-bit target.
+WARNING:Xst:2972 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" line 89. All outputs of instance <edge_detector> of block <edge_detector_7> are unconnected in block <mojo_top_0>. Underlying logic will be removed.
+WARNING:Xst:2972 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" line 96. All outputs of instance <dec_ctr> of block <multi_dec_ctr_8> are unconnected in block <mojo_top_0>. Underlying logic will be removed.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <mojo_top_0>.
+    Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v".
+INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" line 96: Output port <digits> of the instance <dec_ctr> is unconnected or connected to loadless signal.
+    Found 4-bit register for signal <M_oState_q>.
+    Found 8-bit register for signal <light>.
+    Found 8-bit register for signal <M_temporaryMole_q>.
+    Found 1-bit register for signal <M_gameInitializer_q>.
+    Found 8-bit register for signal <M_score_q>.
+    Found 8-bit register for signal <M_moleLeft_q>.
+    Found 1-bit register for signal <M_getRdmNum_q>.
+    Found 7-bit register for signal <M_timeCounter_q>.
+    Found 32-bit register for signal <M_halfsecond_q>.
+    Found finite state machine <FSM_0> for signal <M_oState_q>.
+    -----------------------------------------------------------------------
+    | States             | 11                                             |
+    | Transitions        | 34                                             |
+    | Inputs             | 11                                             |
+    | Outputs            | 6                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | M_reset_cond_out (positive)                    |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 0000                                           |
+    | Power Up State     | 0000                                           |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_59_OUT> created at line 276.
+    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_89_OUT> created at line 282.
+    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_148_OUT> created at line 289.
+    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_221_OUT> created at line 296.
+    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_280_OUT> created at line 303.
+    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_311_OUT> created at line 310.
+    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_322_OUT> created at line 317.
+    Found 32-bit adder for signal <M_halfsecond_q[31]_GND_1_o_add_6_OUT> created at line 198.
+    Found 8-bit adder for signal <M_score_q[7]_GND_1_o_add_364_OUT> created at line 409.
+    Found 4-bit subtractor for signal <scoreGewei> created at line 50.
+    Found 8x4-bit multiplier for signal <n0739> created at line 185.
+    Found 1-bit tristate buffer for signal <spi_miso> created at line 151
+    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 151
+    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 151
+    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 151
+    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 151
+    Found 1-bit tristate buffer for signal <avr_rx> created at line 151
+    Found 32-bit comparator greater for signal <GND_1_o_INV_1040_o> created at line 199
+    Found 8-bit comparator greater for signal <n0041> created at line 272
+    Found 8-bit comparator greater for signal <M_moleLeft_q[7]_GND_1_o_LessThan_88_o> created at line 279
+    Found 8-bit comparator greater for signal <M_moleLeft_q[7]_GND_1_o_LessThan_147_o> created at line 286
+    Found 8-bit comparator greater for signal <M_moleLeft_q[7]_GND_1_o_LessThan_220_o> created at line 293
+    Found 8-bit comparator greater for signal <M_moleLeft_q[7]_GND_1_o_LessThan_279_o> created at line 300
+    Found 8-bit comparator greater for signal <M_moleLeft_q[7]_GND_1_o_LessThan_310_o> created at line 307
+    Found 8-bit comparator greater for signal <M_moleLeft_q[7]_GND_1_o_LessThan_321_o> created at line 314
+    Found 8-bit comparator greater for signal <M_score_q[7]_GND_1_o_LessThan_22_o> created at line 327
+    Found 8-bit comparator greater for signal <M_score_q[7]_GND_1_o_LessThan_27_o> created at line 330
+    Found 8-bit comparator greater for signal <M_score_q[7]_GND_1_o_LessThan_32_o> created at line 333
+    Found 7-bit comparator greater for signal <n0579> created at line 358
+    Found 7-bit comparator greater for signal <n0585> created at line 374
+    Found 7-bit comparator greater for signal <n0591> created at line 390
+    Summary:
+	inferred   1 Multiplier(s).
+	inferred   4 Adder/Subtractor(s).
+	inferred  73 D-type flip-flop(s).
+	inferred  14 Comparator(s).
+	inferred  59 Multiplexer(s).
+	inferred   6 Tristate(s).
+	inferred   1 Finite State Machine(s).
+Unit <mojo_top_0> synthesized.
+
+Synthesizing Unit <alumux_1>.
+    Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v".
+INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 30: Output port <first> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 30: Output port <second> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 30: Output port <third> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 30: Output port <fourth> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 30: Output port <led> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 30: Output port <z> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 30: Output port <v> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 30: Output port <n> of the instance <alu> is unconnected or connected to loadless signal.
+    Summary:
+	inferred   6 Multiplexer(s).
+Unit <alumux_1> synthesized.
+
+Synthesizing Unit <combinedALU_12>.
+    Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/combinedALU_12.v".
+WARNING:Xst:653 - Signal <led<7:3>> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Summary:
+	inferred  11 Multiplexer(s).
+Unit <combinedALU_12> synthesized.
+
+Synthesizing Unit <adder_16bits_22>.
+    Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/16adder_22.v".
+WARNING:Xst:647 - Input <alufn<1:1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 16-bit subtractor for signal <a[15]_b[15]_sub_2_OUT> created at line 28.
+    Found 16-bit adder for signal <a[15]_b[15]_add_0_OUT> created at line 25.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <adder_16bits_22> synthesized.
+
+Synthesizing Unit <compare_16bits_23>.
+    Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/16compare_23.v".
+WARNING:Xst:647 - Input <alufn<0:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <alufn<5:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 16-bit 4-to-1 multiplexer for signal <out> created at line 19.
+    Found 16-bit comparator greater for signal <a[15]_b[15]_LessThan_5_o> created at line 31
+    Found 16-bit comparator equal for signal <a[15]_b[15]_equal_6_o> created at line 31
+    Summary:
+	inferred   2 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <compare_16bits_23> synthesized.
+
+Synthesizing Unit <shift_16bits_24>.
+    Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/16shift_24.v".
+WARNING:Xst:647 - Input <b<15:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <alufn<5:2>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 16-bit shifter logical left for signal <a[15]_b[3]_shift_left_0_OUT> created at line 20
+    Found 16-bit shifter logical right for signal <a[15]_b[3]_shift_right_1_OUT> created at line 23
+    Found 16-bit shifter arithmetic right for signal <a[15]_b[3]_shift_right_2_OUT> created at line 26
+    Found 16-bit 4-to-1 multiplexer for signal <out> created at line 18.
+    Summary:
+	inferred   1 Multiplexer(s).
+	inferred   3 Combinational logic shifter(s).
+Unit <shift_16bits_24> synthesized.
+
+Synthesizing Unit <boolean_16bits_25>.
+    Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/16boolean_25.v".
+WARNING:Xst:647 - Input <alufn<5:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+Unit <boolean_16bits_25> synthesized.
+
+Synthesizing Unit <multiplier_16bits_26>.
+    Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/16multiplier_26.v".
+    Found 16x16-bit multiplier for signal <n0010> created at line 20.
+    Summary:
+	inferred   1 Multiplier(s).
+Unit <multiplier_16bits_26> synthesized.
+
+Synthesizing Unit <div_16s_16s>.
+    Related source file is "".
+    Found 16-bit subtractor for signal <a[15]_unary_minus_1_OUT> created at line 0.
+    Found 16-bit subtractor for signal <b[15]_unary_minus_3_OUT> created at line 0.
+    Found 32-bit adder for signal <n1002> created at line 0.
+    Found 32-bit adder for signal <GND_10_o_b[15]_add_5_OUT> created at line 0.
+    Found 31-bit adder for signal <n1006> created at line 0.
+    Found 31-bit adder for signal <GND_10_o_b[15]_add_7_OUT> created at line 0.
+    Found 30-bit adder for signal <n1010> created at line 0.
+    Found 30-bit adder for signal <GND_10_o_b[15]_add_9_OUT> created at line 0.
+    Found 29-bit adder for signal <n1014> created at line 0.
+    Found 29-bit adder for signal <GND_10_o_b[15]_add_11_OUT> created at line 0.
+    Found 28-bit adder for signal <n1018> created at line 0.
+    Found 28-bit adder for signal <GND_10_o_b[15]_add_13_OUT> created at line 0.
+    Found 27-bit adder for signal <n1022> created at line 0.
+    Found 27-bit adder for signal <GND_10_o_b[15]_add_15_OUT> created at line 0.
+    Found 26-bit adder for signal <n1026> created at line 0.
+    Found 26-bit adder for signal <GND_10_o_b[15]_add_17_OUT> created at line 0.
+    Found 25-bit adder for signal <n1030> created at line 0.
+    Found 25-bit adder for signal <GND_10_o_b[15]_add_19_OUT> created at line 0.
+    Found 24-bit adder for signal <n1034> created at line 0.
+    Found 24-bit adder for signal <GND_10_o_b[15]_add_21_OUT> created at line 0.
+    Found 23-bit adder for signal <n1038> created at line 0.
+    Found 23-bit adder for signal <GND_10_o_b[15]_add_23_OUT> created at line 0.
+    Found 22-bit adder for signal <n1042> created at line 0.
+    Found 22-bit adder for signal <GND_10_o_b[15]_add_25_OUT> created at line 0.
+    Found 21-bit adder for signal <n1046> created at line 0.
+    Found 21-bit adder for signal <GND_10_o_b[15]_add_27_OUT> created at line 0.
+    Found 20-bit adder for signal <n1050> created at line 0.
+    Found 20-bit adder for signal <GND_10_o_b[15]_add_29_OUT> created at line 0.
+    Found 19-bit adder for signal <n1054> created at line 0.
+    Found 19-bit adder for signal <GND_10_o_b[15]_add_31_OUT> created at line 0.
+    Found 18-bit adder for signal <n1058> created at line 0.
+    Found 18-bit adder for signal <GND_10_o_b[15]_add_33_OUT> created at line 0.
+    Found 17-bit adder for signal <n1062> created at line 0.
+    Found 17-bit adder for signal <GND_10_o_b[15]_add_35_OUT> created at line 0.
+    Found 17-bit adder for signal <GND_10_o_BUS_0001_add_38_OUT[16:0]> created at line 0.
+    Found 32-bit comparator greater for signal <BUS_0001_INV_496_o> created at line 0
+    Found 31-bit comparator greater for signal <BUS_0002_INV_495_o> created at line 0
+    Found 30-bit comparator greater for signal <BUS_0003_INV_494_o> created at line 0
+    Found 29-bit comparator greater for signal <BUS_0004_INV_493_o> created at line 0
+    Found 28-bit comparator greater for signal <BUS_0005_INV_492_o> created at line 0
+    Found 27-bit comparator greater for signal <BUS_0006_INV_491_o> created at line 0
+    Found 26-bit comparator greater for signal <BUS_0007_INV_490_o> created at line 0
+    Found 25-bit comparator greater for signal <BUS_0008_INV_489_o> created at line 0
+    Found 24-bit comparator greater for signal <BUS_0009_INV_488_o> created at line 0
+    Found 23-bit comparator greater for signal <BUS_0010_INV_487_o> created at line 0
+    Found 22-bit comparator greater for signal <BUS_0011_INV_486_o> created at line 0
+    Found 21-bit comparator greater for signal <BUS_0012_INV_485_o> created at line 0
+    Found 20-bit comparator greater for signal <BUS_0013_INV_484_o> created at line 0
+    Found 19-bit comparator greater for signal <BUS_0014_INV_483_o> created at line 0
+    Found 18-bit comparator greater for signal <BUS_0015_INV_482_o> created at line 0
+    Found 17-bit comparator greater for signal <BUS_0016_INV_481_o> created at line 0
+    Found 16-bit comparator greater for signal <BUS_0017_INV_480_o> created at line 0
+    Summary:
+	inferred  35 Adder/Subtractor(s).
+	inferred  17 Comparator(s).
+	inferred 244 Multiplexer(s).
+Unit <div_16s_16s> synthesized.
+
+Synthesizing Unit <mod_16_27>.
+    Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/16mod_27.v".
+    Found 16-bit subtractor for signal <a[15]_a[15]_sub_4_OUT> created at line 23.
+    Found 16x16-bit multiplier for signal <n0012> created at line 23.
+    Found 16-bit comparator greater for signal <a[15]_b[15]_LessThan_1_o> created at line 20
+    Summary:
+	inferred   1 Multiplier(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+	inferred   2 Multiplexer(s).
+Unit <mod_16_27> synthesized.
+
+Synthesizing Unit <div_16u_16u>.
+    Related source file is "".
+    Found 32-bit adder for signal <n0956> created at line 0.
+    Found 32-bit adder for signal <GND_13_o_b[15]_add_1_OUT> created at line 0.
+    Found 31-bit adder for signal <n0960> created at line 0.
+    Found 31-bit adder for signal <GND_13_o_b[15]_add_3_OUT> created at line 0.
+    Found 30-bit adder for signal <n0964> created at line 0.
+    Found 30-bit adder for signal <GND_13_o_b[15]_add_5_OUT> created at line 0.
+    Found 29-bit adder for signal <n0968> created at line 0.
+    Found 29-bit adder for signal <GND_13_o_b[15]_add_7_OUT> created at line 0.
+    Found 28-bit adder for signal <n0972> created at line 0.
+    Found 28-bit adder for signal <GND_13_o_b[15]_add_9_OUT> created at line 0.
+    Found 27-bit adder for signal <n0976> created at line 0.
+    Found 27-bit adder for signal <GND_13_o_b[15]_add_11_OUT> created at line 0.
+    Found 26-bit adder for signal <n0980> created at line 0.
+    Found 26-bit adder for signal <GND_13_o_b[15]_add_13_OUT> created at line 0.
+    Found 25-bit adder for signal <n0984> created at line 0.
+    Found 25-bit adder for signal <GND_13_o_b[15]_add_15_OUT> created at line 0.
+    Found 24-bit adder for signal <n0988> created at line 0.
+    Found 24-bit adder for signal <GND_13_o_b[15]_add_17_OUT> created at line 0.
+    Found 23-bit adder for signal <n0992> created at line 0.
+    Found 23-bit adder for signal <GND_13_o_b[15]_add_19_OUT> created at line 0.
+    Found 22-bit adder for signal <n0996> created at line 0.
+    Found 22-bit adder for signal <GND_13_o_b[15]_add_21_OUT> created at line 0.
+    Found 21-bit adder for signal <n1000> created at line 0.
+    Found 21-bit adder for signal <GND_13_o_b[15]_add_23_OUT> created at line 0.
+    Found 20-bit adder for signal <n1004> created at line 0.
+    Found 20-bit adder for signal <GND_13_o_b[15]_add_25_OUT> created at line 0.
+    Found 19-bit adder for signal <n1008> created at line 0.
+    Found 19-bit adder for signal <GND_13_o_b[15]_add_27_OUT> created at line 0.
+    Found 18-bit adder for signal <n1012> created at line 0.
+    Found 18-bit adder for signal <GND_13_o_b[15]_add_29_OUT> created at line 0.
+    Found 17-bit adder for signal <n1016> created at line 0.
+    Found 17-bit adder for signal <GND_13_o_b[15]_add_31_OUT> created at line 0.
+    Found 32-bit comparator lessequal for signal <BUS_0001> created at line 0
+    Found 31-bit comparator lessequal for signal <BUS_0002> created at line 0
+    Found 30-bit comparator lessequal for signal <BUS_0003> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0004> created at line 0
+    Found 28-bit comparator lessequal for signal <BUS_0005> created at line 0
+    Found 27-bit comparator lessequal for signal <BUS_0006> created at line 0
+    Found 26-bit comparator lessequal for signal <BUS_0007> created at line 0
+    Found 25-bit comparator lessequal for signal <BUS_0008> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0009> created at line 0
+    Found 23-bit comparator lessequal for signal <BUS_0010> created at line 0
+    Found 22-bit comparator lessequal for signal <BUS_0011> created at line 0
+    Found 21-bit comparator lessequal for signal <BUS_0012> created at line 0
+    Found 20-bit comparator lessequal for signal <BUS_0013> created at line 0
+    Found 19-bit comparator lessequal for signal <BUS_0014> created at line 0
+    Found 18-bit comparator lessequal for signal <BUS_0015> created at line 0
+    Found 17-bit comparator lessequal for signal <BUS_0016> created at line 0
+    Found 16-bit comparator lessequal for signal <BUS_0017> created at line 0
+    Summary:
+	inferred  32 Adder/Subtractor(s).
+	inferred  17 Comparator(s).
+	inferred 241 Multiplexer(s).
+Unit <div_16u_16u> synthesized.
+
+Synthesizing Unit <getZVN_28>.
+    Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/getZVN_28.v".
+WARNING:Xst:647 - Input <a<14:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <b<14:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <alufn<5:1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	inferred   2 Multiplexer(s).
+Unit <getZVN_28> synthesized.
+
+Synthesizing Unit <seven_seg_2>.
+    Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/seven_seg_2.v".
+    Found 16x7-bit Read Only RAM for signal <segs>
+    Summary:
+	inferred   1 RAM(s).
+Unit <seven_seg_2> synthesized.
+
+Synthesizing Unit <reset_conditioner_6>.
+    Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/reset_conditioner_6.v".
+    Found 4-bit register for signal <M_stage_q>.
+    Summary:
+	inferred   4 D-type flip-flop(s).
+Unit <reset_conditioner_6> synthesized.
+
+Synthesizing Unit <edge_detector_7>.
+    Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/edge_detector_7.v".
+    Found 1-bit register for signal <M_last_q>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <edge_detector_7> synthesized.
+
+Synthesizing Unit <decimal_counter_13>.
+    Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/decimal_counter_13.v".
+    Found 1-bit register for signal <M_val_q<3>>.
+    Found 1-bit register for signal <M_val_q<2>>.
+    Found 1-bit register for signal <M_val_q<1>>.
+    Found 1-bit register for signal <M_val_q<0>>.
+    Summary:
+	inferred   4 D-type flip-flop(s).
+Unit <decimal_counter_13> synthesized.
+
+Synthesizing Unit <lfsr_randomizer_9>.
+    Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/lfsr_randomiser_9.v".
+WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 8-bit register for signal <M_count_q>.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+Unit <lfsr_randomizer_9> synthesized.
+
+Synthesizing Unit <counter_10>.
+    Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/counter_10.v".
+    Found 25-bit register for signal <M_ctr_q>.
+    Found 25-bit adder for signal <M_ctr_d> created at line 35.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  25 D-type flip-flop(s).
+Unit <counter_10> synthesized.
+
+Synthesizing Unit <pushButton_11>.
+    Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/button_11.v".
+WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <pushButton_11> synthesized.
+
+Synthesizing Unit <button_conditioner_14>.
+    Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/button_conditioner_14.v".
+    Found 20-bit register for signal <M_ctr_q>.
+    Found 20-bit adder for signal <M_ctr_q[19]_GND_24_o_add_2_OUT> created at line 39.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  20 D-type flip-flop(s).
+Unit <button_conditioner_14> synthesized.
+
+Synthesizing Unit <pipeline_29>.
+    Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/pipeline_29.v".
+    Found 2-bit register for signal <M_pipe_q>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <pipeline_29> synthesized.
+
+Synthesizing Unit <div_8u_4u>.
+    Related source file is "".
+    Found 12-bit adder for signal <n0241> created at line 0.
+    Found 12-bit adder for signal <GND_26_o_b[3]_add_1_OUT> created at line 0.
+    Found 11-bit adder for signal <n0245> created at line 0.
+    Found 11-bit adder for signal <GND_26_o_b[3]_add_3_OUT> created at line 0.
+    Found 10-bit adder for signal <n0249> created at line 0.
+    Found 10-bit adder for signal <GND_26_o_b[3]_add_5_OUT> created at line 0.
+    Found 9-bit adder for signal <n0253> created at line 0.
+    Found 9-bit adder for signal <GND_26_o_b[3]_add_7_OUT> created at line 0.
+    Found 8-bit adder for signal <n0257> created at line 0.
+    Found 8-bit adder for signal <a[7]_b[3]_add_9_OUT> created at line 0.
+    Found 8-bit adder for signal <n0261> created at line 0.
+    Found 8-bit adder for signal <a[7]_GND_26_o_add_11_OUT[7:0]> created at line 0.
+    Found 8-bit adder for signal <n0265> created at line 0.
+    Found 8-bit adder for signal <a[7]_GND_26_o_add_13_OUT[7:0]> created at line 0.
+    Found 8-bit adder for signal <n0269> created at line 0.
+    Found 8-bit adder for signal <a[7]_GND_26_o_add_15_OUT[7:0]> created at line 0.
+    Found 12-bit comparator lessequal for signal <BUS_0001> created at line 0
+    Found 11-bit comparator lessequal for signal <BUS_0002> created at line 0
+    Found 10-bit comparator lessequal for signal <BUS_0003> created at line 0
+    Found 9-bit comparator lessequal for signal <BUS_0004> created at line 0
+    Found 8-bit comparator lessequal for signal <BUS_0005> created at line 0
+    Found 8-bit comparator lessequal for signal <BUS_0006> created at line 0
+    Found 8-bit comparator lessequal for signal <BUS_0007> created at line 0
+    Found 8-bit comparator lessequal for signal <BUS_0008> created at line 0
+    Found 8-bit comparator lessequal for signal <BUS_0009> created at line 0
+    Summary:
+	inferred  16 Adder/Subtractor(s).
+	inferred   9 Comparator(s).
+	inferred  43 Multiplexer(s).
+Unit <div_8u_4u> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 4
+ 16x7-bit single-port Read Only RAM                    : 4
+# Multipliers                                          : 3
+ 16x16-bit multiplier                                  : 2
+ 8x4-bit multiplier                                    : 1
+# Adders/Subtractors                                   : 114
+ 10-bit adder                                          : 4
+ 11-bit adder                                          : 4
+ 12-bit adder                                          : 4
+ 16-bit addsub                                         : 1
+ 16-bit subtractor                                     : 3
+ 17-bit adder                                          : 5
+ 18-bit adder                                          : 4
+ 19-bit adder                                          : 4
+ 20-bit adder                                          : 12
+ 21-bit adder                                          : 4
+ 22-bit adder                                          : 4
+ 23-bit adder                                          : 4
+ 24-bit adder                                          : 4
+ 25-bit adder                                          : 5
+ 26-bit adder                                          : 4
+ 27-bit adder                                          : 4
+ 28-bit adder                                          : 4
+ 29-bit adder                                          : 4
+ 30-bit adder                                          : 4
+ 31-bit adder                                          : 4
+ 32-bit adder                                          : 5
+ 4-bit subtractor                                      : 1
+ 8-bit adder                                           : 17
+ 8-bit subtractor                                      : 1
+ 9-bit adder                                           : 4
+# Registers                                            : 35
+ 1-bit register                                        : 10
+ 2-bit register                                        : 8
+ 20-bit register                                       : 8
+ 25-bit register                                       : 1
+ 32-bit register                                       : 1
+ 4-bit register                                        : 1
+ 7-bit register                                        : 1
+ 8-bit register                                        : 5
+# Comparators                                          : 69
+ 10-bit comparator lessequal                           : 2
+ 11-bit comparator lessequal                           : 2
+ 12-bit comparator lessequal                           : 2
+ 16-bit comparator equal                               : 1
+ 16-bit comparator greater                             : 3
+ 16-bit comparator lessequal                           : 1
+ 17-bit comparator greater                             : 1
+ 17-bit comparator lessequal                           : 1
+ 18-bit comparator greater                             : 1
+ 18-bit comparator lessequal                           : 1
+ 19-bit comparator greater                             : 1
+ 19-bit comparator lessequal                           : 1
+ 20-bit comparator greater                             : 1
+ 20-bit comparator lessequal                           : 1
+ 21-bit comparator greater                             : 1
+ 21-bit comparator lessequal                           : 1
+ 22-bit comparator greater                             : 1
+ 22-bit comparator lessequal                           : 1
+ 23-bit comparator greater                             : 1
+ 23-bit comparator lessequal                           : 1
+ 24-bit comparator greater                             : 1
+ 24-bit comparator lessequal                           : 1
+ 25-bit comparator greater                             : 1
+ 25-bit comparator lessequal                           : 1
+ 26-bit comparator greater                             : 1
+ 26-bit comparator lessequal                           : 1
+ 27-bit comparator greater                             : 1
+ 27-bit comparator lessequal                           : 1
+ 28-bit comparator greater                             : 1
+ 28-bit comparator lessequal                           : 1
+ 29-bit comparator greater                             : 1
+ 29-bit comparator lessequal                           : 1
+ 30-bit comparator greater                             : 1
+ 30-bit comparator lessequal                           : 1
+ 31-bit comparator greater                             : 1
+ 31-bit comparator lessequal                           : 1
+ 32-bit comparator greater                             : 2
+ 32-bit comparator lessequal                           : 1
+ 7-bit comparator greater                              : 3
+ 8-bit comparator greater                              : 10
+ 8-bit comparator lessequal                            : 10
+ 9-bit comparator lessequal                            : 2
+# Multiplexers                                         : 653
+ 1-bit 2-to-1 multiplexer                              : 579
+ 16-bit 2-to-1 multiplexer                             : 15
+ 16-bit 4-to-1 multiplexer                             : 2
+ 17-bit 2-to-1 multiplexer                             : 1
+ 32-bit 2-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 4
+ 6-bit 2-to-1 multiplexer                              : 1
+ 7-bit 2-to-1 multiplexer                              : 11
+ 8-bit 2-to-1 multiplexer                              : 39
+# Logic shifters                                       : 3
+ 16-bit shifter arithmetic right                       : 1
+ 16-bit shifter logical left                           : 1
+ 16-bit shifter logical right                          : 1
+# Tristates                                            : 6
+ 1-bit tristate buffer                                 : 6
+# FSMs                                                 : 1
+# Xors                                                 : 5
+ 1-bit xor2                                            : 4
+ 16-bit xor2                                           : 1
+
+=========================================================================
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <button_conditioner_14>.
+The following registers are absorbed into counter <M_ctr_q>: 1 register on signal <M_ctr_q>.
+Unit <button_conditioner_14> synthesized (advanced).
+
+Synthesizing (advanced) Unit <counter_10>.
+The following registers are absorbed into counter <M_ctr_q>: 1 register on signal <M_ctr_q>.
+Unit <counter_10> synthesized (advanced).
+
+Synthesizing (advanced) Unit <mod_16_27>.
+	Multiplier <Mmult_n0012> in block <mod_16_27> and adder/subtractor <Msub_a[15]_a[15]_sub_4_OUT> in block <mod_16_27> are combined into a MAC<Maddsub_n0012>.
+Unit <mod_16_27> synthesized (advanced).
+
+Synthesizing (advanced) Unit <mojo_top_0>.
+The following registers are absorbed into counter <M_score_q>: 1 register on signal <M_score_q>.
+The following registers are absorbed into counter <M_halfsecond_q>: 1 register on signal <M_halfsecond_q>.
+	Multiplier <Mmult_n0739> in block <mojo_top_0> and adder/subtractor <Msub_scoreGewei> in block <mojo_top_0> are combined into a MAC<Maddsub_n0739>.
+Unit <mojo_top_0> synthesized (advanced).
+
+Synthesizing (advanced) Unit <seven_seg_2>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_segs> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 16-word x 7-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <char>          |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <segs>          |          |
+    -----------------------------------------------------------------------
+Unit <seven_seg_2> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 4
+ 16x7-bit single-port distributed Read Only RAM        : 4
+# MACs                                                 : 2
+ 16x16-to-16-bit MAC                                   : 1
+ 8x4-to-4-bit MAC                                      : 1
+# Multipliers                                          : 1
+ 16x16-bit multiplier                                  : 1
+# Adders/Subtractors                                   : 53
+ 16-bit adder carry in                                 : 32
+ 16-bit addsub                                         : 1
+ 16-bit subtractor                                     : 2
+ 17-bit adder                                          : 1
+ 8-bit adder carry in                                  : 16
+ 8-bit subtractor                                      : 1
+# Counters                                             : 11
+ 20-bit up counter                                     : 8
+ 25-bit up counter                                     : 1
+ 32-bit up counter                                     : 1
+ 8-bit up counter                                      : 1
+# Registers                                            : 69
+ Flip-Flops                                            : 69
+# Comparators                                          : 69
+ 10-bit comparator lessequal                           : 2
+ 11-bit comparator lessequal                           : 2
+ 12-bit comparator lessequal                           : 2
+ 16-bit comparator equal                               : 1
+ 16-bit comparator greater                             : 3
+ 16-bit comparator lessequal                           : 1
+ 17-bit comparator greater                             : 1
+ 17-bit comparator lessequal                           : 1
+ 18-bit comparator greater                             : 1
+ 18-bit comparator lessequal                           : 1
+ 19-bit comparator greater                             : 1
+ 19-bit comparator lessequal                           : 1
+ 20-bit comparator greater                             : 1
+ 20-bit comparator lessequal                           : 1
+ 21-bit comparator greater                             : 1
+ 21-bit comparator lessequal                           : 1
+ 22-bit comparator greater                             : 1
+ 22-bit comparator lessequal                           : 1
+ 23-bit comparator greater                             : 1
+ 23-bit comparator lessequal                           : 1
+ 24-bit comparator greater                             : 1
+ 24-bit comparator lessequal                           : 1
+ 25-bit comparator greater                             : 1
+ 25-bit comparator lessequal                           : 1
+ 26-bit comparator greater                             : 1
+ 26-bit comparator lessequal                           : 1
+ 27-bit comparator greater                             : 1
+ 27-bit comparator lessequal                           : 1
+ 28-bit comparator greater                             : 1
+ 28-bit comparator lessequal                           : 1
+ 29-bit comparator greater                             : 1
+ 29-bit comparator lessequal                           : 1
+ 30-bit comparator greater                             : 1
+ 30-bit comparator lessequal                           : 1
+ 31-bit comparator greater                             : 1
+ 31-bit comparator lessequal                           : 1
+ 32-bit comparator greater                             : 2
+ 32-bit comparator lessequal                           : 1
+ 7-bit comparator greater                              : 3
+ 8-bit comparator greater                              : 10
+ 8-bit comparator lessequal                            : 10
+ 9-bit comparator lessequal                            : 2
+# Multiplexers                                         : 651
+ 1-bit 2-to-1 multiplexer                              : 579
+ 16-bit 2-to-1 multiplexer                             : 15
+ 16-bit 4-to-1 multiplexer                             : 2
+ 17-bit 2-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 4
+ 6-bit 2-to-1 multiplexer                              : 1
+ 7-bit 2-to-1 multiplexer                              : 11
+ 8-bit 2-to-1 multiplexer                              : 38
+# Logic shifters                                       : 3
+ 16-bit shifter arithmetic right                       : 1
+ 16-bit shifter logical left                           : 1
+ 16-bit shifter logical right                          : 1
+# FSMs                                                 : 1
+# Xors                                                 : 5
+ 1-bit xor2                                            : 4
+ 16-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <FSM_0> on signal <M_oState_q[1:4]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 0000  | 0000
+ 0010  | 0010
+ 1100  | 1100
+ 0101  | 0101
+ 0110  | 0110
+ 0111  | 0111
+ 1011  | 1011
+ 0100  | 0100
+ 1000  | 1000
+ 1001  | 1001
+ 1010  | 1010
+-------------------
+
+Optimizing unit <mojo_top_0> ...
+WARNING:Xst:1293 - FF/Latch <M_timeCounter_q_5> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_timeCounter_q_6> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <M_timeCounter_q_5> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_timeCounter_q_6> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <pushButton_11> ...
+
+Optimizing unit <lfsr_randomizer_9> ...
+
+Optimizing unit <div_8u_4u> ...
+
+Optimizing unit <alumux_1> ...
+
+Optimizing unit <combinedALU_12> ...
+WARNING:Xst:2677 - Node <alumux/alu/mul/Mmult_n0010> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:1293 - FF/Latch <M_moleLeft_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_halfsecond_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_halfsecond_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_halfsecond_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_halfsecond_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_halfsecond_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_halfsecond_q_30> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_halfsecond_q_31> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 18.
+FlipFlop M_oState_q_FSM_FFd1 has been replicated 2 time(s)
+FlipFlop M_oState_q_FSM_FFd2 has been replicated 2 time(s)
+FlipFlop M_oState_q_FSM_FFd3 has been replicated 2 time(s)
+
+Final Macro Processing ...
+
+Processing Unit <mojo_top_0> :
+	Found 2-bit shift register for signal <buttons/button7_cond/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <buttons/button6_cond/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <buttons/button5_cond/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <buttons/button4_cond/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <buttons/button3_cond/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <buttons/button2_cond/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <buttons/button1_cond/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <buttons/button0_cond/sync/M_pipe_q_1>.
+INFO:Xst:741 - HDL ADVISOR - A 4-bit shift register was found for signal <reset_cond/M_stage_q_3> and currently occupies 4 logic cells (2 slices). Removing the set/reset logic would take advantage of SRL32 (and derived) primitives and reduce this to 1 logic cells (1 slices). Evaluate if the set/reset can be removed for this simple shift register. The majority of simple pipeline structures do not need to be set/reset operationally.
+Unit <mojo_top_0> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 278
+ Flip-Flops                                            : 278
+# Shift Registers                                      : 8
+ 2-bit shift register                                  : 8
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Clock Information:
+------------------
+-----------------------------------+-----------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)       | Load  |
+-----------------------------------+-----------------------------+-------+
+clk                                | BUFGP                       | 286   |
+ctr/M_ctr_q_24                     | NONE(randomizer/M_count_q_7)| 8     |
+-----------------------------------+-----------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 55.168ns (Maximum Frequency: 18.126MHz)
+   Minimum input arrival time before clock: 6.991ns
+   Maximum output required time after clock: 60.231ns
+   Maximum combinational path delay: No path found
+
+=========================================================================

@@ -1,0 +1,8 @@
+INTSTYLE=pa
+INFILE=C:\Users\xiaomeng_wu\Documents\mojo\WAM_work\WAM\work\planAhead\IOShieldDemo\IOShieldDemo.runs\impl_1\mojo_top_0_routed.ncd
+OUTFILE=C:\Users\xiaomeng_wu\Documents\mojo\WAM_work\WAM\work\planAhead\IOShieldDemo\IOShieldDemo.runs\impl_1\mojo_top_0.bit
+FAMILY=Spartan6
+PART=xc6slx9-2tqg144
+WORKINGDIR=C:\Users\xiaomeng_wu\Documents\mojo\WAM_work\WAM\work\planAhead\IOShieldDemo\IOShieldDemo.runs\impl_1
+LICENSE=WebPack
+USER_INFO=211600646_0_0_971

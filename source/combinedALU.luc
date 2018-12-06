@@ -1,0 +1,261 @@
+module combinedALU (
+    input a[16],           // input A for 16bits 
+    input b[16],           // input B for 16bits
+    input alufn[6],        // input ALUFN 6bit OPCODES
+    
+    output first[4],       // LED number first from left (4bit wide hexadecimal)
+    output second[4],      // LED number second from left
+    output third[4],       // LED number third from left
+    output fourth[4],      // LED number fourth from left
+    
+    output out[16],        // output stream of 16bits (sum/S outputs)
+    output z,              // Z is true when S outputs are all zero
+    output v,              // V is true when operation overflows(result too large to be represented in 16bits)
+    output n,              // N is true when S is negative
+    output led[8]          // 8 LED lights at bottom of MOJO 
+) {
+                           // instantiation of ALU components
+  adder_16bits   add;      // 16bit full adder
+  compare_16bits cmp;      // 16bit comparator
+  shift_16bits   shf;      // 16bit shifter
+  boolean_16bits bool;     // 16bit boolean functions
+  multiplier_16bits mul;   // 16bit multiplier and divider
+  mod_16    mod;           // 16bit mod (%)
+  getZVN    zvn;           // compute outputs Z,V,N
+  
+  
+
+  always {
+    out = 0;           // intialise sum output
+    led[2:0] = 000;    // led 0 1 and 2 off initially
+              
+    add.a = a;         // assign to add module
+    add.b = b;
+    add.alufn = alufn[1:0];
+              
+    bool.a = a;        // assign to boolean module
+    bool.b = b;
+    bool.alufn = alufn;
+    
+    shf.a = a;        // assign to shift module
+    shf.b = b;
+    shf.alufn = alufn;
+
+    zvn.a = a;         // assign to getZVN module
+    zvn.b = b;
+    zvn.alufn = alufn;
+    zvn.out = add.out;
+
+    z = zvn.z;          // assign from ZVN module to get z,v,n
+    v = zvn.v;
+    n = zvn.n;
+
+    cmp.a = a;        // assign to compare module
+    cmp.b = b;
+    cmp.alufn = alufn;
+    
+    mul.a = a;           // assign to multiplie module
+    mul.b = b;
+    mul.alufn = alufn;
+    
+    mod.a = a;          // assign to mod module
+    mod.b = b;
+    mod.alufn = alufn;
+    
+    first = 4h0;        // default values for led 
+    second = 4h0;
+    third = 4h0;
+    fourth = 4h0;
+    
+    if (alufn[5:0]!=6b000000          // This if else statement
+      &alufn[5:0]!=6b000001           // is used to catch any input
+      &alufn[5:0]!=6b011000           // that does not correspond
+      &alufn[5:0]!=6b011110           // to the listed 6bit opcode
+      &alufn[5:0]!=6b010110           // hence outputting error
+      &alufn[5:0]!=6b011010
+      &alufn[5:0]!=6b011001
+      &alufn[5:0]!=6b100000
+      &alufn[5:0]!=6b100001
+      &alufn[5:0]!=6b100011
+      &alufn[5:0]!=6b100011
+      &alufn[5:0]!=6b110101
+      &alufn[5:0]!=6b110111
+      &alufn[5:0]!=6b000010
+      &alufn[5:0]!=6b000011
+      &alufn[5:0]!=6b110011
+      &alufn[5:0]!=6b000111){
+      first = 4hf;    // X displayed on number LED
+      second = 4hf;   // X ditto
+      third = 4hf;    // X ditto 
+      fourth = 4hf;   // X ditto
+      }
+    else{
+      case(alufn[5:0]) {
+      
+         6b000000:          // add     
+            first = 4h1;    // A displayed on number LED
+            second = 4h4;   // D displayed on number LED
+            third = 4h4;    // D
+            out = add.out;
+            led[0] = add.z;
+            led[1] = add.v;
+            led[2] = add.n;
+       
+         
+         6b000001:          // sub
+            first = 4hd;    // S
+            second = 4he;   // U
+            third = 4h2;    // B           
+            out = add.out;
+            led[0] = add.z;
+            led[1] = add.v;
+            led[2] = add.n;
+ 
+  
+         6b011000:           // and
+            first = 4h1;     // A
+            second = 4h9;    // N
+            third = 4h4;     // D
+            out = bool.out;
+
+  
+          
+          6b011110:        // or
+            first = 4ha;    // O
+            second = 4hc;   // R
+            third = 0;      // third number LED is unused
+            out = bool.out;
+
+  
+          6b010110:         // xor
+            first = 4hf;    // X
+            second = 4ha;   // O
+            third = 4hc;    // R
+           
+            out = bool.out;
+
+            
+            
+          6b011010:          // A
+            first = 4h7;      // L
+            second = 4h4;     // D
+            third = 4hc;      // R
+          
+            out = bool.out;
+ 
+            
+          
+          6b011001:           // XNOR
+            first = 4hf;      // X
+            second = 4h9;     // N
+            third = 4ha;      // O
+            fourth = 4hc;     // R
+          
+            out = bool.out;
+
+            
+          
+          6b100000:           // SHL
+            first = 4hd;      // S
+            second = 4h6;     // H
+            third = 4h7;      // L 
+          
+            out = shf.out;
+ 
+            
+            
+          6b100001:           // SHR
+            first = 4hd;      // S
+            second = 4h6;     // H 
+            third = 4hc;      // r 
+          
+            out = shf.out;
+
+            
+          6b100011:           // SRA
+            first = 4hd;      // S
+            second = 4hc;     // r
+            third = 4h1;      // A 
+          
+            out = shf.out;
+
+            
+          
+          6b110011:           // CMPEQ
+            first = 4h3;      // C
+            second = 4h5;     // E
+            third = 4ha;      // O 
+          
+            out = cmp.out;
+
+            
+          6b110101:           //CMPLT
+            first = 4h3;      // C
+            second = 4h7;     // L
+            third = 0;
+          
+            out = cmp.out;
+
+            
+          
+          6b110111:           // CMPLE
+            first = 4h3;      // C
+            second = 4h7;     // L   
+            third = 4h5;      // E
+          
+            out = cmp.out;
+
+            
+          
+          6b000010:            // multiply
+            first = 4h8;       // M
+            second = 4he;      // U
+            third = 4h7;       // L 
+            
+            out = mul.out;
+ 
+
+            
+            
+          6b000011:             // divide
+            if (b == 0){        // divide by zero case 
+               first = 4hf;     // X
+               second = 4hf;    // X
+               third = 4hf;     // X 
+               fourth = 4hf;    // X 
+               out = mul.out;
+ 
+    
+            }else{
+              first = 4h4;      // d
+              second = 4h4;     // d
+              third = 4h5;      // e 
+              
+              out = mul.out;
+
+           }
+        6b000111:               // mod
+           if (b == 0){         // divide by zero case 
+               first = 4hf;     // X 
+               second = 4hf;    // X 
+               third = 4hf;     // X 
+               fourth = 4hf;    // X 
+               out = mod.out;
+
+            }else{
+              first = 4h8;      // M
+              second = 4hA;     // O
+              third = 4h4;      // d
+              
+              out = mod.out;  
+       
+           }
+           
+        default:
+          
+          out = 16h0000;        // output default to 0 
+
+      }
+    }
+  }
+}

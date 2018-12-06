@@ -1,0 +1,18 @@
+module shift_16bits (      // shift implements Shift Left, Shift Right, and Shift Right Arithmetic 
+    input a[16],
+    input b[16],
+    input alufn[6],
+    output out[16]
+  ) {
+
+  always {
+    case(alufn[1:0]) {         // [3:0] : 4 bits of shifting distance, total 16 bits
+      2b00:out = a[15:0] << b[3:0];             // SHL: shift to left
+      2b01:out = a[15:0] >> b[3:0];             // SHR: shift to right
+      2b11:out = $signed(a[15:0]) >>> b[3:0];   // SRA(signed) : shift to right with signed
+                                                // i.e. padded the right empty digits with the MSB digit
+      default:
+        out = 0;
+    }
+  }
+}

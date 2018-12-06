@@ -1,0 +1,22 @@
+module multiplier_16bits (      // multiplier module implements multiplication of two inputs 
+    input a[16],
+    input b[16],
+    input alufn[6],
+    output out[16]   
+  ) {
+
+  always {
+
+    case(alufn[5:0]) {
+      6b000010:
+        out = $signed(a) * $signed(b);        // inputs are all signed
+                                              //can be positive or negative  
+      6b000011:
+        out = $signed(a) / $signed(b);
+       
+      default:
+        out = 0;
+
+    }
+  }
+}
