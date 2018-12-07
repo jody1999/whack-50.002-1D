@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Thu Dec 06 23:13:21 2018
+// Written by: Map P.20131013 on Fri Dec 07 12:44:54 2018
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -50,21 +50,15 @@ COMP "light[4]" LOCATE = SITE "P92" LEVEL 1;
 COMP "light[5]" LOCATE = SITE "P97" LEVEL 1;
 COMP "light[6]" LOCATE = SITE "P101" LEVEL 1;
 COMP "light[7]" LOCATE = SITE "P111" LEVEL 1;
-TIMEGRP clk = BEL "reset_cond/M_stage_q_3" BEL "reset_cond/M_stage_q_2" BEL
-        "reset_cond/M_stage_q_1" BEL "reset_cond/M_stage_q_0" BEL
-        "M_halfsecond_q_10" BEL "M_halfsecond_q_11" BEL "M_halfsecond_q_12"
-        BEL "M_halfsecond_q_13" BEL "M_halfsecond_q_14" BEL
-        "M_halfsecond_q_20" BEL "M_halfsecond_q_15" BEL "M_halfsecond_q_16"
-        BEL "M_halfsecond_q_21" BEL "M_halfsecond_q_17" BEL
-        "M_halfsecond_q_22" BEL "M_halfsecond_q_18" BEL "M_halfsecond_q_23"
-        BEL "M_halfsecond_q_19" BEL "M_halfsecond_q_24" BEL "M_halfsecond_q_0"
-        BEL "M_halfsecond_q_1" BEL "M_halfsecond_q_2" BEL "M_halfsecond_q_3"
-        BEL "M_halfsecond_q_4" BEL "M_halfsecond_q_5" BEL "M_halfsecond_q_6"
-        BEL "M_halfsecond_q_7" BEL "M_halfsecond_q_8" BEL "M_halfsecond_q_9"
-        BEL "M_led_pattern_q_0" BEL "M_led_pattern_q_1" BEL
-        "M_led_pattern_q_2" BEL "M_led_pattern_q_3" BEL "M_led_pattern_q_4"
-        BEL "M_led_pattern_q_5" BEL "M_led_pattern_q_6" BEL
-        "M_led_pattern_q_7" BEL "buttons/button6_edge/M_last_q" BEL
+TIMEGRP clk = BEL "M_halfsecond_q_0" BEL "M_halfsecond_q_1" BEL
+        "M_halfsecond_q_2" BEL "M_halfsecond_q_3" BEL "M_halfsecond_q_4" BEL
+        "M_halfsecond_q_5" BEL "M_halfsecond_q_6" BEL "M_halfsecond_q_7" BEL
+        "M_halfsecond_q_8" BEL "M_halfsecond_q_9" BEL "clk_BUFGP/BUFG" BEL
+        "M_moleLeft_q_0" BEL "M_moleLeft_q_1" BEL "reset_cond/M_stage_q_3" BEL
+        "reset_cond/M_stage_q_2" BEL "reset_cond/M_stage_q_1" BEL
+        "reset_cond/M_stage_q_0" BEL "M_moleLeft_q_2" BEL "M_moleLeft_q_3" BEL
+        "M_moleLeft_q_4" BEL "M_moleLeft_q_5" BEL "M_moleLeft_q_6" BEL
+        "M_gameInitializer_q_0" BEL "buttons/button6_edge/M_last_q" BEL
         "buttons/button1_edge/M_last_q" BEL "buttons/button7_edge/M_last_q"
         BEL "buttons/button2_edge/M_last_q" BEL
         "buttons/button3_edge/M_last_q" BEL "buttons/button4_edge/M_last_q"
@@ -212,23 +206,18 @@ TIMEGRP clk = BEL "reset_cond/M_stage_q_3" BEL "reset_cond/M_stage_q_2" BEL
         BEL "buttons/button4_cond/M_ctr_q_2" BEL
         "buttons/button4_cond/M_ctr_q_1" BEL "buttons/button4_cond/M_ctr_q_0"
         BEL "buttons/button4_cond/sync/M_pipe_q_1" BEL
-        "buttons/button4_cond/sync/Mshreg_M_pipe_q_1" BEL "M_getRdmNum_q_0"
-        BEL "M_timeCounter_q_0" BEL "M_timeCounter_q_1" BEL
-        "M_oState_q_FSM_FFd1_1" BEL "M_timeCounter_q_2" BEL
-        "M_oState_q_FSM_FFd1_2" BEL "M_timeCounter_q_3" BEL
-        "M_timeCounter_q_4" BEL "M_temporaryMole_q_0" BEL
-        "M_temporaryMole_q_1" BEL "M_temporaryMole_q_2" BEL
-        "M_temporaryMole_q_3" BEL "M_temporaryMole_q_4" BEL
-        "M_temporaryMole_q_5" BEL "M_temporaryMole_q_6" BEL
-        "M_temporaryMole_q_7" BEL "M_moleLeft_q_0" BEL "M_moleLeft_q_1" BEL
-        "M_moleLeft_q_2" BEL "M_oState_q_FSM_FFd2_1" BEL "M_moleLeft_q_3" BEL
-        "M_oState_q_FSM_FFd2_2" BEL "M_moleLeft_q_4" BEL "M_moleLeft_q_5" BEL
-        "M_moleLeft_q_6" BEL "M_oState_q_FSM_FFd3_1" BEL
-        "M_oState_q_FSM_FFd3_2" BEL "M_gameInitializer_q_0" BEL "M_score_q_0"
-        BEL "M_score_q_1" BEL "M_score_q_2" BEL "M_score_q_3" BEL
-        "M_score_q_4" BEL "M_score_q_5" BEL "M_score_q_6" BEL "M_score_q_7"
-        BEL "M_oState_q_FSM_FFd1" BEL "M_oState_q_FSM_FFd2" BEL
-        "M_oState_q_FSM_FFd3" BEL "M_oState_q_FSM_FFd4" BEL "ctr/M_ctr_q_0"
+        "buttons/button4_cond/sync/Mshreg_M_pipe_q_1" BEL "M_halfsecond_q_10"
+        BEL "M_halfsecond_q_11" BEL "M_halfsecond_q_12" BEL
+        "M_halfsecond_q_13" BEL "M_halfsecond_q_14" BEL "M_halfsecond_q_15"
+        BEL "M_halfsecond_q_20" BEL "M_score_q_0" BEL "M_halfsecond_q_21" BEL
+        "M_halfsecond_q_16" BEL "M_score_q_1" BEL "M_halfsecond_q_22" BEL
+        "M_halfsecond_q_17" BEL "M_score_q_2" BEL "M_halfsecond_q_18" BEL
+        "M_score_q_3" BEL "M_halfsecond_q_19" BEL "M_oState_q_FSM_FFd1_1" BEL
+        "M_oState_q_FSM_FFd1_2" BEL "M_getRdmNum_q_0" BEL
+        "M_oState_q_FSM_FFd4_1" BEL "M_oState_q_FSM_FFd4_2" BEL
+        "M_temporaryMole_q_0" BEL "M_temporaryMole_q_1" BEL
+        "M_temporaryMole_q_2" BEL "M_temporaryMole_q_3" BEL
+        "M_temporaryMole_q_5" BEL "M_temporaryMole_q_7" BEL "ctr/M_ctr_q_0"
         BEL "ctr/M_ctr_q_1" BEL "ctr/M_ctr_q_2" BEL "ctr/M_ctr_q_3" BEL
         "ctr/M_ctr_q_4" BEL "ctr/M_ctr_q_5" BEL "ctr/M_ctr_q_6" BEL
         "ctr/M_ctr_q_7" BEL "ctr/M_ctr_q_8" BEL "ctr/M_ctr_q_9" BEL
@@ -237,7 +226,14 @@ TIMEGRP clk = BEL "reset_cond/M_stage_q_3" BEL "reset_cond/M_stage_q_2" BEL
         "ctr/M_ctr_q_16" BEL "ctr/M_ctr_q_17" BEL "ctr/M_ctr_q_18" BEL
         "ctr/M_ctr_q_19" BEL "ctr/M_ctr_q_20" BEL "ctr/M_ctr_q_21" BEL
         "ctr/M_ctr_q_22" BEL "ctr/M_ctr_q_23" BEL "ctr/M_ctr_q_24" BEL
-        "clk_BUFGP/BUFG";
+        "M_timeCounter_q_0" BEL "M_timeCounter_q_1" BEL "M_timeCounter_q_2"
+        BEL "M_timeCounter_q_3" BEL "M_timeCounter_q_4" BEL
+        "M_timeCounter_q_5" BEL "M_timeCounter_q_6" BEL "M_oState_q_FSM_FFd1"
+        BEL "M_oState_q_FSM_FFd2" BEL "M_oState_q_FSM_FFd3" BEL
+        "M_oState_q_FSM_FFd4" BEL "M_led_pattern_q_0" BEL "M_led_pattern_q_1"
+        BEL "M_led_pattern_q_2" BEL "M_led_pattern_q_3" BEL
+        "M_led_pattern_q_4" BEL "M_led_pattern_q_5" BEL "M_led_pattern_q_6"
+        BEL "M_led_pattern_q_7";
 TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
 SCHEMATIC END;
 

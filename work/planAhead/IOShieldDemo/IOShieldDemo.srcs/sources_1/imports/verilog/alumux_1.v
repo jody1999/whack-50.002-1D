@@ -5,11 +5,12 @@
 */
 
 module alumux_1 (
-    input [15:0] a,
-    input [15:0] b,
-    input [15:0] c,
-    input [15:0] d,
-    input sel,
+    input [15:0] mole,
+    input [15:0] score,
+    input [15:0] molemod,
+    input [15:0] scoreaddc,
+    input asel,
+    input bsel,
     output reg [15:0] out
   );
   
@@ -47,15 +48,15 @@ module alumux_1 (
     M_alu_b = 1'h0;
     M_alu_alufn = 6'h00;
     out = 1'h0;
-    if (sel == 1'h0) begin
-      M_alu_a = a;
-      M_alu_b = b;
-      M_alu_alufn = 6'h01;
+    if (asel == 1'h0 && bsel == 1'h0) begin
+      M_alu_a = score;
+      M_alu_b = scoreaddc;
+      M_alu_alufn = 6'h00;
       out = M_alu_out;
     end else begin
-      if (sel == 1'h1) begin
-        M_alu_a = c;
-        M_alu_b = d;
+      if (asel == 1'h1 && bsel == 1'h1) begin
+        M_alu_a = mole;
+        M_alu_b = molemod;
         M_alu_alufn = 6'h07;
         out = M_alu_out;
       end

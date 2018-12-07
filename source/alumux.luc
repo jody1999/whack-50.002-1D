@@ -1,10 +1,12 @@
 module alumux (
-   
-    input a[16],
-    input b[16],
-    input c[16],
-    input d[16],
-    input sel,
+    
+    input mole[16],
+    input score[16],
+    input molemod[16],
+    input scoreaddc[16],
+    input asel,
+    input bsel,
+    
     output out[16]
   ) {
   combinedALU alu;
@@ -15,20 +17,20 @@ module alumux (
     alu.alufn = 6b000000;
     out = 000000;
     
-    if(sel == 0){             // minus   00
-   
-    alu.a = a;
-    alu.b = b;
-    alu.alufn = 6b000001;
-    out = alu.out;  
-      }
-      else if(sel == 1){        // mod  01
-      alu.a = c;
-      alu.b = d;
-    alu.alufn = 6b000111;
-    out = alu.out; 
+    if(asel == 0 && bsel == 0){             // add   0
+      alu.a = score;
+      alu.b = scoreaddc;
+      alu.alufn = 6b000000;
+      out = alu.out;
     }
     
-  
+    else if(asel == 1 && bsel == 1 ){        // mod 1
+      alu.a = mole;
+      alu.b = molemod;
+      alu.alufn = 6b000111;
+      out = alu.out;
+    }
+    
+    
   }
 }

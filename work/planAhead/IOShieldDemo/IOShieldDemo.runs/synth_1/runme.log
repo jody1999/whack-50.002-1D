@@ -71,14 +71,14 @@ Elaborating module <multiplier_16bits_26>.
 Elaborating module <mod_16_27>.
 
 Elaborating module <getZVN_28>.
-WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 34: Assignment to M_alu_first ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 35: Assignment to M_alu_second ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 36: Assignment to M_alu_third ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 37: Assignment to M_alu_fourth ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 39: Assignment to M_alu_z ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 40: Assignment to M_alu_v ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 41: Assignment to M_alu_n ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 42: Assignment to M_alu_led ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 35: Assignment to M_alu_first ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 36: Assignment to M_alu_second ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 37: Assignment to M_alu_third ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 38: Assignment to M_alu_fourth ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 40: Assignment to M_alu_z ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 41: Assignment to M_alu_v ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 42: Assignment to M_alu_n ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" Line 43: Assignment to M_alu_led ignored, since the identifier is never used
 
 Elaborating module <seven_seg_2>.
 
@@ -89,7 +89,7 @@ Elaborating module <edge_detector_7>.
 Elaborating module <multi_dec_ctr_8>.
 
 Elaborating module <decimal_counter_13>.
-WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 100: Assignment to M_dec_ctr_digits ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 102: Assignment to M_dec_ctr_digits ignored, since the identifier is never used
 
 Elaborating module <lfsr_randomizer_9>.
 
@@ -105,10 +105,11 @@ WARNING:HDLCompiler:413 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work
 WARNING:HDLCompiler:413 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 175: Result of 8-bit expression is truncated to fit in 7-bit target.
 WARNING:HDLCompiler:413 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 176: Result of 8-bit expression is truncated to fit in 7-bit target.
 WARNING:HDLCompiler:413 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 179: Result of 8-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:413 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 184: Result of 8-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:413 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 185: Result of 8-bit expression is truncated to fit in 4-bit target.
-WARNING:Xst:2972 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" line 89. All outputs of instance <edge_detector> of block <edge_detector_7> are unconnected in block <mojo_top_0>. Underlying logic will be removed.
-WARNING:Xst:2972 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" line 96. All outputs of instance <dec_ctr> of block <multi_dec_ctr_8> are unconnected in block <mojo_top_0>. Underlying logic will be removed.
+WARNING:HDLCompiler:413 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 187: Result of 8-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 189: Result of 8-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 190: Result of 8-bit expression is truncated to fit in 4-bit target.
+WARNING:Xst:2972 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" line 91. All outputs of instance <edge_detector> of block <edge_detector_7> are unconnected in block <mojo_top_0>. Underlying logic will be removed.
+WARNING:Xst:2972 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" line 98. All outputs of instance <dec_ctr> of block <multi_dec_ctr_8> are unconnected in block <mojo_top_0>. Underlying logic will be removed.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -116,22 +117,22 @@ WARNING:Xst:2972 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAh
 
 Synthesizing Unit <mojo_top_0>.
     Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v".
-INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" line 96: Output port <digits> of the instance <dec_ctr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/mojo_top_0.v" line 98: Output port <digits> of the instance <dec_ctr> is unconnected or connected to loadless signal.
     Found 4-bit register for signal <M_oState_q>.
+    Found 7-bit register for signal <M_timeCounter_q>.
     Found 8-bit register for signal <light>.
     Found 8-bit register for signal <M_temporaryMole_q>.
     Found 1-bit register for signal <M_gameInitializer_q>.
     Found 8-bit register for signal <M_score_q>.
     Found 8-bit register for signal <M_moleLeft_q>.
     Found 1-bit register for signal <M_getRdmNum_q>.
-    Found 7-bit register for signal <M_timeCounter_q>.
     Found 32-bit register for signal <M_halfsecond_q>.
     Found finite state machine <FSM_0> for signal <M_oState_q>.
     -----------------------------------------------------------------------
-    | States             | 11                                             |
-    | Transitions        | 34                                             |
+    | States             | 10                                             |
+    | Transitions        | 32                                             |
     | Inputs             | 11                                             |
-    | Outputs            | 6                                              |
+    | Outputs            | 7                                              |
     | Clock              | clk (rising_edge)                              |
     | Reset              | M_reset_cond_out (positive)                    |
     | Reset type         | synchronous                                    |
@@ -140,57 +141,59 @@ INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_59_OUT> created at line 276.
-    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_89_OUT> created at line 282.
-    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_148_OUT> created at line 289.
-    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_221_OUT> created at line 296.
-    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_280_OUT> created at line 303.
-    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_311_OUT> created at line 310.
-    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_322_OUT> created at line 317.
-    Found 32-bit adder for signal <M_halfsecond_q[31]_GND_1_o_add_6_OUT> created at line 198.
-    Found 8-bit adder for signal <M_score_q[7]_GND_1_o_add_364_OUT> created at line 409.
-    Found 4-bit subtractor for signal <scoreGewei> created at line 50.
-    Found 8x4-bit multiplier for signal <n0739> created at line 185.
-    Found 1-bit tristate buffer for signal <spi_miso> created at line 151
-    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 151
-    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 151
-    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 151
-    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 151
-    Found 1-bit tristate buffer for signal <avr_rx> created at line 151
-    Found 32-bit comparator greater for signal <GND_1_o_INV_1040_o> created at line 199
-    Found 8-bit comparator greater for signal <n0041> created at line 272
-    Found 8-bit comparator greater for signal <M_moleLeft_q[7]_GND_1_o_LessThan_88_o> created at line 279
-    Found 8-bit comparator greater for signal <M_moleLeft_q[7]_GND_1_o_LessThan_147_o> created at line 286
-    Found 8-bit comparator greater for signal <M_moleLeft_q[7]_GND_1_o_LessThan_220_o> created at line 293
-    Found 8-bit comparator greater for signal <M_moleLeft_q[7]_GND_1_o_LessThan_279_o> created at line 300
-    Found 8-bit comparator greater for signal <M_moleLeft_q[7]_GND_1_o_LessThan_310_o> created at line 307
-    Found 8-bit comparator greater for signal <M_moleLeft_q[7]_GND_1_o_LessThan_321_o> created at line 314
-    Found 8-bit comparator greater for signal <M_score_q[7]_GND_1_o_LessThan_22_o> created at line 327
-    Found 8-bit comparator greater for signal <M_score_q[7]_GND_1_o_LessThan_27_o> created at line 330
-    Found 8-bit comparator greater for signal <M_score_q[7]_GND_1_o_LessThan_32_o> created at line 333
-    Found 7-bit comparator greater for signal <n0579> created at line 358
-    Found 7-bit comparator greater for signal <n0585> created at line 374
-    Found 7-bit comparator greater for signal <n0591> created at line 390
+    Found 7-bit subtractor for signal <M_timeCounter_q[6]_GND_1_o_sub_15_OUT> created at line 205.
+    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_62_OUT> created at line 278.
+    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_92_OUT> created at line 284.
+    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_151_OUT> created at line 291.
+    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_224_OUT> created at line 298.
+    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_283_OUT> created at line 305.
+    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_314_OUT> created at line 312.
+    Found 8-bit subtractor for signal <M_moleLeft_q[7]_GND_1_o_sub_325_OUT> created at line 319.
+    Found 32-bit adder for signal <M_halfsecond_q[31]_GND_1_o_add_12_OUT> created at line 203.
+    Found 4-bit subtractor for signal <M_moleLeft_q[7]_M_moleLeft_q[7]_sub_5_OUT<3:0>> created at line 187.
+    Found 4-bit subtractor for signal <scoreGewei> created at line 52.
+    Found 8x4-bit multiplier for signal <n0757> created at line 187.
+    Found 8x4-bit multiplier for signal <n0759> created at line 190.
+    Found 1-bit tristate buffer for signal <spi_miso> created at line 150
+    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 150
+    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 150
+    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 150
+    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 150
+    Found 1-bit tristate buffer for signal <avr_rx> created at line 150
+    Found 32-bit comparator lessequal for signal <n0012> created at line 204
+    Found 8-bit comparator greater for signal <n0042> created at line 274
+    Found 8-bit comparator greater for signal <M_moleLeft_q[7]_GND_1_o_LessThan_91_o> created at line 281
+    Found 8-bit comparator greater for signal <M_moleLeft_q[7]_GND_1_o_LessThan_150_o> created at line 288
+    Found 8-bit comparator greater for signal <M_moleLeft_q[7]_GND_1_o_LessThan_223_o> created at line 295
+    Found 8-bit comparator greater for signal <M_moleLeft_q[7]_GND_1_o_LessThan_282_o> created at line 302
+    Found 8-bit comparator greater for signal <M_moleLeft_q[7]_GND_1_o_LessThan_313_o> created at line 309
+    Found 8-bit comparator greater for signal <M_moleLeft_q[7]_GND_1_o_LessThan_324_o> created at line 316
+    Found 8-bit comparator greater for signal <M_score_q[7]_GND_1_o_LessThan_25_o> created at line 329
+    Found 8-bit comparator greater for signal <M_score_q[7]_GND_1_o_LessThan_30_o> created at line 332
+    Found 8-bit comparator greater for signal <M_score_q[7]_GND_1_o_LessThan_35_o> created at line 335
+    Found 7-bit comparator greater for signal <n0580> created at line 360
+    Found 7-bit comparator greater for signal <n0586> created at line 376
+    Found 7-bit comparator greater for signal <n0592> created at line 392
     Summary:
-	inferred   1 Multiplier(s).
-	inferred   4 Adder/Subtractor(s).
+	inferred   2 Multiplier(s).
+	inferred   5 Adder/Subtractor(s).
 	inferred  73 D-type flip-flop(s).
 	inferred  14 Comparator(s).
-	inferred  59 Multiplexer(s).
+	inferred  73 Multiplexer(s).
 	inferred   6 Tristate(s).
 	inferred   1 Finite State Machine(s).
 Unit <mojo_top_0> synthesized.
 
 Synthesizing Unit <alumux_1>.
     Related source file is "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v".
-INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 30: Output port <first> of the instance <alu> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 30: Output port <second> of the instance <alu> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 30: Output port <third> of the instance <alu> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 30: Output port <fourth> of the instance <alu> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 30: Output port <led> of the instance <alu> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 30: Output port <z> of the instance <alu> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 30: Output port <v> of the instance <alu> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 30: Output port <n> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 31: Output port <first> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 31: Output port <second> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 31: Output port <third> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 31: Output port <fourth> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 31: Output port <led> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 31: Output port <z> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 31: Output port <v> of the instance <alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:/Users/xiaomeng_wu/Documents/mojo/WAM_work/WAM/work/planAhead/IOShieldDemo/IOShieldDemo.srcs/sources_1/imports/verilog/alumux_1.v" line 31: Output port <n> of the instance <alu> is unconnected or connected to loadless signal.
     Summary:
 	inferred   6 Multiplexer(s).
 Unit <alumux_1> synthesized.
@@ -497,10 +500,10 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 4
  16x7-bit single-port Read Only RAM                    : 4
-# Multipliers                                          : 3
+# Multipliers                                          : 4
  16x16-bit multiplier                                  : 2
- 8x4-bit multiplier                                    : 1
-# Adders/Subtractors                                   : 114
+ 8x4-bit multiplier                                    : 2
+# Adders/Subtractors                                   : 115
  10-bit adder                                          : 4
  11-bit adder                                          : 4
  12-bit adder                                          : 4
@@ -522,8 +525,9 @@ Macro Statistics
  30-bit adder                                          : 4
  31-bit adder                                          : 4
  32-bit adder                                          : 5
- 4-bit subtractor                                      : 1
- 8-bit adder                                           : 17
+ 4-bit subtractor                                      : 2
+ 7-bit subtractor                                      : 1
+ 8-bit adder                                           : 16
  8-bit subtractor                                      : 1
  9-bit adder                                           : 4
 # Registers                                            : 35
@@ -572,21 +576,21 @@ Macro Statistics
  30-bit comparator lessequal                           : 1
  31-bit comparator greater                             : 1
  31-bit comparator lessequal                           : 1
- 32-bit comparator greater                             : 2
- 32-bit comparator lessequal                           : 1
+ 32-bit comparator greater                             : 1
+ 32-bit comparator lessequal                           : 2
  7-bit comparator greater                              : 3
  8-bit comparator greater                              : 10
  8-bit comparator lessequal                            : 10
  9-bit comparator lessequal                            : 2
-# Multiplexers                                         : 653
- 1-bit 2-to-1 multiplexer                              : 579
- 16-bit 2-to-1 multiplexer                             : 15
+# Multiplexers                                         : 667
+ 1-bit 2-to-1 multiplexer                              : 587
+ 16-bit 2-to-1 multiplexer                             : 22
  16-bit 4-to-1 multiplexer                             : 2
  17-bit 2-to-1 multiplexer                             : 1
  32-bit 2-to-1 multiplexer                             : 1
- 4-bit 2-to-1 multiplexer                              : 4
+ 4-bit 2-to-1 multiplexer                              : 5
  6-bit 2-to-1 multiplexer                              : 1
- 7-bit 2-to-1 multiplexer                              : 11
+ 7-bit 2-to-1 multiplexer                              : 9
  8-bit 2-to-1 multiplexer                              : 39
 # Logic shifters                                       : 3
  16-bit shifter arithmetic right                       : 1
@@ -620,9 +624,10 @@ Synthesizing (advanced) Unit <mod_16_27>.
 Unit <mod_16_27> synthesized (advanced).
 
 Synthesizing (advanced) Unit <mojo_top_0>.
-The following registers are absorbed into counter <M_score_q>: 1 register on signal <M_score_q>.
 The following registers are absorbed into counter <M_halfsecond_q>: 1 register on signal <M_halfsecond_q>.
-	Multiplier <Mmult_n0739> in block <mojo_top_0> and adder/subtractor <Msub_scoreGewei> in block <mojo_top_0> are combined into a MAC<Maddsub_n0739>.
+	Multiplier <Mmult_n0759> in block <mojo_top_0> and adder/subtractor <Msub_scoreGewei> in block <mojo_top_0> are combined into a MAC<Maddsub_n0759>.
+	The following registers are also absorbed by the MAC: <M_score_q> in block <mojo_top_0>.
+	Multiplier <Mmult_n0757> in block <mojo_top_0> and adder/subtractor <Msub_M_moleLeft_q[7]_M_moleLeft_q[7]_sub_5_OUT<3:0>> in block <mojo_top_0> are combined into a MAC<Maddsub_n0757>.
 Unit <mojo_top_0> synthesized (advanced).
 
 Synthesizing (advanced) Unit <seven_seg_2>.
@@ -645,25 +650,25 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 4
  16x7-bit single-port distributed Read Only RAM        : 4
-# MACs                                                 : 2
+# MACs                                                 : 3
  16x16-to-16-bit MAC                                   : 1
- 8x4-to-4-bit MAC                                      : 1
+ 8x4-to-4-bit MAC                                      : 2
 # Multipliers                                          : 1
  16x16-bit multiplier                                  : 1
-# Adders/Subtractors                                   : 53
+# Adders/Subtractors                                   : 54
  16-bit adder carry in                                 : 32
  16-bit addsub                                         : 1
  16-bit subtractor                                     : 2
  17-bit adder                                          : 1
+ 7-bit subtractor                                      : 1
  8-bit adder carry in                                  : 16
  8-bit subtractor                                      : 1
-# Counters                                             : 11
+# Counters                                             : 10
  20-bit up counter                                     : 8
  25-bit up counter                                     : 1
  32-bit up counter                                     : 1
- 8-bit up counter                                      : 1
-# Registers                                            : 69
- Flip-Flops                                            : 69
+# Registers                                            : 77
+ Flip-Flops                                            : 77
 # Comparators                                          : 69
  10-bit comparator lessequal                           : 2
  11-bit comparator lessequal                           : 2
@@ -701,21 +706,21 @@ Macro Statistics
  30-bit comparator lessequal                           : 1
  31-bit comparator greater                             : 1
  31-bit comparator lessequal                           : 1
- 32-bit comparator greater                             : 2
- 32-bit comparator lessequal                           : 1
+ 32-bit comparator greater                             : 1
+ 32-bit comparator lessequal                           : 2
  7-bit comparator greater                              : 3
  8-bit comparator greater                              : 10
  8-bit comparator lessequal                            : 10
  9-bit comparator lessequal                            : 2
-# Multiplexers                                         : 651
- 1-bit 2-to-1 multiplexer                              : 579
- 16-bit 2-to-1 multiplexer                             : 15
+# Multiplexers                                         : 666
+ 1-bit 2-to-1 multiplexer                              : 587
+ 16-bit 2-to-1 multiplexer                             : 22
  16-bit 4-to-1 multiplexer                             : 2
  17-bit 2-to-1 multiplexer                             : 1
- 4-bit 2-to-1 multiplexer                              : 4
+ 4-bit 2-to-1 multiplexer                              : 5
  6-bit 2-to-1 multiplexer                              : 1
- 7-bit 2-to-1 multiplexer                              : 11
- 8-bit 2-to-1 multiplexer                              : 38
+ 7-bit 2-to-1 multiplexer                              : 9
+ 8-bit 2-to-1 multiplexer                              : 39
 # Logic shifters                                       : 3
  16-bit shifter arithmetic right                       : 1
  16-bit shifter logical left                           : 1
@@ -736,23 +741,28 @@ Optimizing FSM <FSM_0> on signal <M_oState_q[1:4]> with user encoding.
  State | Encoding
 -------------------
  0000  | 0000
+ 0001  | 0001
+ 1001  | 1001
+ 0011  | 0011
+ 0100  | 0100
+ 1000  | 1000
  0010  | 0010
- 1100  | 1100
  0101  | 0101
  0110  | 0110
  0111  | 0111
- 1011  | 1011
- 0100  | 0100
- 1000  | 1000
- 1001  | 1001
- 1010  | 1010
 -------------------
+WARNING:Xst:1293 - FF/Latch <M_score_q_4> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_score_q_5> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_score_q_6> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_score_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <M_temporaryMole_q_4> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temporaryMole_q_6> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <M_score_q_2> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <Maddsub_n07591_1> 
+INFO:Xst:2261 - The FF/Latch <M_score_q_3> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <Maddsub_n07591_0> 
+INFO:Xst:2261 - The FF/Latch <M_score_q_1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <Maddsub_n07591_2> 
+INFO:Xst:2261 - The FF/Latch <M_score_q_0> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <Maddsub_n07591_3> 
 
 Optimizing unit <mojo_top_0> ...
-WARNING:Xst:1293 - FF/Latch <M_timeCounter_q_5> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_timeCounter_q_6> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <M_timeCounter_q_5> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_timeCounter_q_6> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <pushButton_11> ...
 
@@ -765,6 +775,8 @@ Optimizing unit <alumux_1> ...
 Optimizing unit <combinedALU_12> ...
 WARNING:Xst:2677 - Node <alumux/alu/mul/Mmult_n0010> of sequential type is unconnected in block <mojo_top_0>.
 WARNING:Xst:1293 - FF/Latch <M_moleLeft_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_halfsecond_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_halfsecond_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_halfsecond_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_halfsecond_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_halfsecond_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
@@ -776,9 +788,8 @@ WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_halfsecond_q_31> 
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 18.
-FlipFlop M_oState_q_FSM_FFd1 has been replicated 2 time(s)
-FlipFlop M_oState_q_FSM_FFd2 has been replicated 2 time(s)
-FlipFlop M_oState_q_FSM_FFd3 has been replicated 2 time(s)
+FlipFlop M_oState_q_FSM_FFd1 has been replicated 3 time(s)
+FlipFlop M_oState_q_FSM_FFd4 has been replicated 3 time(s)
 
 Final Macro Processing ...
 
@@ -798,8 +809,8 @@ Unit <mojo_top_0> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 278
- Flip-Flops                                            : 278
+# Registers                                            : 272
+ Flip-Flops                                            : 272
 # Shift Registers                                      : 8
  2-bit shift register                                  : 8
 
@@ -825,7 +836,7 @@ Clock Information:
 -----------------------------------+-----------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)       | Load  |
 -----------------------------------+-----------------------------+-------+
-clk                                | BUFGP                       | 286   |
+clk                                | BUFGP                       | 280   |
 ctr/M_ctr_q_24                     | NONE(randomizer/M_count_q_7)| 8     |
 -----------------------------------+-----------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
@@ -838,9 +849,9 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 55.168ns (Maximum Frequency: 18.126MHz)
-   Minimum input arrival time before clock: 6.991ns
-   Maximum output required time after clock: 60.231ns
+   Minimum period: 46.752ns (Maximum Frequency: 21.389MHz)
+   Minimum input arrival time before clock: 5.976ns
+   Maximum output required time after clock: 52.141ns
    Maximum combinational path delay: No path found
 
 =========================================================================

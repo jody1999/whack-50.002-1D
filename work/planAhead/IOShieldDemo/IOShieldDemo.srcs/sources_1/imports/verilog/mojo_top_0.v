@@ -21,17 +21,19 @@ module mojo_top_0 (
   
   
   wire [16-1:0] M_alumux_out;
-  reg [16-1:0] M_alumux_a;
-  reg [16-1:0] M_alumux_b;
-  reg [16-1:0] M_alumux_c;
-  reg [16-1:0] M_alumux_d;
-  reg [1-1:0] M_alumux_sel;
+  reg [16-1:0] M_alumux_mole;
+  reg [16-1:0] M_alumux_score;
+  reg [16-1:0] M_alumux_molemod;
+  reg [16-1:0] M_alumux_scoreaddc;
+  reg [1-1:0] M_alumux_asel;
+  reg [1-1:0] M_alumux_bsel;
   alumux_1 alumux (
-    .a(M_alumux_a),
-    .b(M_alumux_b),
-    .c(M_alumux_c),
-    .d(M_alumux_d),
-    .sel(M_alumux_sel),
+    .mole(M_alumux_mole),
+    .score(M_alumux_score),
+    .molemod(M_alumux_molemod),
+    .scoreaddc(M_alumux_scoreaddc),
+    .asel(M_alumux_asel),
+    .bsel(M_alumux_bsel),
     .out(M_alumux_out)
   );
   
@@ -39,7 +41,7 @@ module mojo_top_0 (
   
   integer i;
   
-  localparam TIMEOUT = 5'h14;
+  localparam TIMEOUT = 4'ha;
   
   reg [3:0] shiwei;
   
@@ -132,18 +134,15 @@ module mojo_top_0 (
   reg [6:0] M_timeCounter_d, M_timeCounter_q = 5'h14;
   
   localparam INITIAL_oState = 4'd0;
-  localparam READY_oState = 4'd1;
-  localparam START_oState = 4'd2;
-  localparam COUNTDOWN_oState = 4'd3;
-  localparam END1_oState = 4'd4;
-  localparam END2_oState = 4'd5;
-  localparam END3_oState = 4'd6;
-  localparam LEVEL1_oState = 4'd7;
-  localparam LEVEL2_oState = 4'd8;
-  localparam LEVEL3_oState = 4'd9;
-  localparam LEVEL4_oState = 4'd10;
-  localparam CHECK_oState = 4'd11;
-  localparam CHECKM_oState = 4'd12;
+  localparam START_oState = 4'd1;
+  localparam END_oState = 4'd2;
+  localparam RESET_oState = 4'd3;
+  localparam LEVEL1_oState = 4'd4;
+  localparam LEVEL2_oState = 4'd5;
+  localparam LEVEL3_oState = 4'd6;
+  localparam LEVEL4_oState = 4'd7;
+  localparam CHECK_oState = 4'd8;
+  localparam CHECKM_oState = 4'd9;
   
   reg [3:0] M_oState_d, M_oState_q = INITIAL_oState;
   reg [31:0] M_halfsecond_d, M_halfsecond_q = 1'h0;
@@ -160,11 +159,12 @@ module mojo_top_0 (
     M_timeCounter_d = M_timeCounter_q;
     M_gameInitializer_d = M_gameInitializer_q;
     
-    M_alumux_a = 8'h00;
-    M_alumux_b = 8'h00;
-    M_alumux_c = 8'h00;
-    M_alumux_d = 8'h00;
-    M_alumux_sel = 8'h00;
+    M_alumux_score = 8'h00;
+    M_alumux_mole = 8'h00;
+    M_alumux_scoreaddc = 4'h1;
+    M_alumux_molemod = 4'ha;
+    M_alumux_asel = 4'h0;
+    M_alumux_bsel = 4'h0;
     M_reset_cond_in = ~rst_n;
     rst = M_reset_cond_out;
     spi_miso = 1'bz;
@@ -177,10 +177,15 @@ module mojo_top_0 (
     M_edge_detector_in = M_ctr_value;
     M_dec_ctr_inc = M_edge_detector_out;
     shiwei = M_moleLeft_q / 4'ha;
-    M_alumux_c = M_moleLeft_q;
-    M_alumux_d = 4'ha;
-    M_alumux_sel = 1'h1;
-    gewei = M_alumux_out[0+3-:4];
+    if (M_oState_q != CHECK_oState) begin
+      M_alumux_mole = M_moleLeft_q;
+      M_alumux_molemod = 4'ha;
+      M_alumux_asel = 4'h1;
+      M_alumux_bsel = 4'h1;
+      gewei = M_alumux_out[0+3-:4];
+    end else begin
+      gewei = M_moleLeft_q - (M_moleLeft_q / 4'ha * 4'ha);
+    end
     scoreShiwei = M_score_q / 4'ha;
     scoreGewei = M_score_q - (M_score_q / 4'ha * 4'ha);
     M_seg1_char = shiwei;
@@ -196,11 +201,8 @@ module mojo_top_0 (
     M_randomizer_ctr = M_ctr_value;
     if (M_oState_q != START_oState) begin
       M_halfsecond_d = M_halfsecond_q + 1'h1;
-      if (M_halfsecond_q >= 25'h17d7840) begin
-        M_alumux_a = M_timeCounter_q;
-        M_alumux_b = 1'h1;
-        M_alumux_sel = 1'h0;
-        M_timeCounter_d = M_alumux_out[0+3-:4];
+      if (M_halfsecond_q >= 23'h4c4b40) begin
+        M_timeCounter_d = M_timeCounter_q - 1'h1;
         M_halfsecond_d = 32'h00000000;
       end
     end
@@ -221,7 +223,7 @@ module mojo_top_0 (
           M_led_pattern_d[5+0-:1] = 1'h1;
           M_led_pattern_d[6+0-:1] = 1'h1;
           M_led_pattern_d[7+0-:1] = 1'h1;
-          M_timeCounter_d = 5'h14;
+          M_timeCounter_d = 4'ha;
           M_gameInitializer_d = 1'h0;
         end
         if (button[0+7-:8] != 8'h00) begin
@@ -229,7 +231,7 @@ module mojo_top_0 (
         end
       end
       START_oState: begin
-        M_timeCounter_d = 5'h14;
+        M_timeCounter_d = 4'ha;
         if (M_score_q < 3'h5) begin
           if (M_getRdmNum_q == 1'h1) begin
             M_led_pattern_d = {M_randomizer_result_8bit[5+0-:1], 1'h0, M_randomizer_result_8bit[3+0-:1], 1'h0, 1'h0, 1'h0, M_randomizer_result_8bit[1+0-:1], 1'h0};
@@ -270,7 +272,7 @@ module mojo_top_0 (
       end
       CHECKM_oState: begin
         if (M_moleLeft_q <= 1'h0) begin
-          M_oState_d = END1_oState;
+          M_oState_d = END_oState;
         end else begin
           if (M_temporaryMole_q[0+7-:8] == 8'h01 | M_temporaryMole_q[0+7-:8] == 8'h02 | M_temporaryMole_q[0+7-:8] == 8'h04 | M_temporaryMole_q[0+7-:8] == 8'h08 | M_temporaryMole_q[0+7-:8] == 8'h10 | M_temporaryMole_q[0+7-:8] == 8'h20 | M_temporaryMole_q[0+7-:8] == 8'h40 | M_temporaryMole_q[0+7-:8] == 8'h40) begin
             M_moleLeft_d = M_moleLeft_q - 1'h1;
@@ -344,7 +346,7 @@ module mojo_top_0 (
           M_oState_d = START_oState;
         end else begin
           if (M_moleLeft_q == 8'h00) begin
-            M_oState_d = END1_oState;
+            M_oState_d = END_oState;
           end else begin
             if (button[0+7-:8] != 1'h0) begin
               M_oState_d = CHECK_oState;
@@ -360,7 +362,7 @@ module mojo_top_0 (
           M_oState_d = START_oState;
         end else begin
           if (M_moleLeft_q == 8'h00) begin
-            M_oState_d = END1_oState;
+            M_oState_d = END_oState;
           end else begin
             if (button[0+7-:8] != 1'h0) begin
               M_oState_d = CHECK_oState;
@@ -376,7 +378,7 @@ module mojo_top_0 (
           M_oState_d = START_oState;
         end else begin
           if (M_moleLeft_q == 8'h00) begin
-            M_oState_d = END1_oState;
+            M_oState_d = END_oState;
           end else begin
             if (button[0+7-:8] != 1'h0) begin
               M_oState_d = CHECK_oState;
@@ -392,7 +394,7 @@ module mojo_top_0 (
           M_oState_d = START_oState;
         end else begin
           if (M_moleLeft_q == 8'h00) begin
-            M_oState_d = END1_oState;
+            M_oState_d = END_oState;
           end else begin
             if (button[0+7-:8] != 1'h0) begin
               M_oState_d = CHECK_oState;
@@ -406,7 +408,11 @@ module mojo_top_0 (
         for (i = 1'h0; i < 4'h8; i = i + 1) begin
           if (M_led_pattern_q[(i)*1+0-:1] == 1'h1 && M_buttons_button_pressed[(i)*1+0-:1] == 1'h1) begin
             M_led_pattern_d[(i)*1+0-:1] = 1'h0;
-            M_score_d = M_score_q + 1'h1;
+            M_alumux_score = M_score_q;
+            M_alumux_scoreaddc = 4'h1;
+            M_alumux_asel = 4'h0;
+            M_alumux_bsel = 4'h0;
+            M_score_d = M_alumux_out[0+3-:4];
           end
         end
         if (M_score_q < 3'h5) begin
@@ -423,23 +429,15 @@ module mojo_top_0 (
           end
         end
       end
-      END1_oState: begin
+      END_oState: begin
         M_led_pattern_d = 8'h00;
         M_getRdmNum_d = 1'h0;
         M_gameInitializer_d = 1'h0;
         if (M_buttons_button_pressed != 8'h00) begin
-          M_oState_d = END2_oState;
+          M_oState_d = RESET_oState;
         end
       end
-      END2_oState: begin
-        M_led_pattern_d = 8'h00;
-        M_getRdmNum_d = 1'h0;
-        M_gameInitializer_d = 1'h0;
-        if (M_buttons_button_pressed != 8'h00) begin
-          M_oState_d = END3_oState;
-        end
-      end
-      END3_oState: begin
+      RESET_oState: begin
         M_led_pattern_d = 8'h00;
         M_getRdmNum_d = 1'h0;
         M_gameInitializer_d = 1'h0;
@@ -448,7 +446,7 @@ module mojo_top_0 (
           M_moleLeft_d = 8'h63;
           M_gameInitializer_d = 1'h1;
           M_temporaryMole_d = 8'h00;
-          M_timeCounter_d = 5'h14;
+          M_timeCounter_d = 4'ha;
           M_oState_d = INITIAL_oState;
         end
       end
@@ -462,6 +460,15 @@ module mojo_top_0 (
     end else begin
       M_halfsecond_q <= M_halfsecond_d;
       M_oState_q <= M_oState_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_timeCounter_q <= 5'h14;
+    end else begin
+      M_timeCounter_q <= M_timeCounter_d;
     end
   end
   
@@ -483,15 +490,6 @@ module mojo_top_0 (
       M_score_q <= M_score_d;
       M_moleLeft_q <= M_moleLeft_d;
       M_getRdmNum_q <= M_getRdmNum_d;
-    end
-  end
-  
-  
-  always @(posedge clk) begin
-    if (rst == 1'b1) begin
-      M_timeCounter_q <= 5'h14;
-    end else begin
-      M_timeCounter_q <= M_timeCounter_d;
     end
   end
   

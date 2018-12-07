@@ -32,7 +32,7 @@ module mojo_top (
   sig rst;                  // reset signal
   var i;                    // local temp variable for iterating through led_pattern
 
-  const TIMEOUT = d20;
+  const TIMEOUT = d10;
   sig shiwei[4];
   sig gewei[4];
   sig scoreShiwei[4];
@@ -80,7 +80,7 @@ module mojo_top (
   .clk(clk){ 	// Overall state
     .rst(rst){
       
-      fsm oState = {INITIAL, READY, START, COUNTDOWN,  END1,END2, END3, LEVEL1, LEVEL2, LEVEL3, LEVEL4, CHECK,CHECKM};
+      fsm oState = {INITIAL, START,END, RESET, LEVEL1, LEVEL2, LEVEL3, LEVEL4, CHECK,CHECKM};
       dff halfsecond[32](#INIT(0));
     }
   }
@@ -88,11 +88,12 @@ module mojo_top (
   always{
     
     /* default alu */
-    alumux.a = h00;
-    alumux.b = h00;
-    alumux.c = h00;
-    alumux.d = h00;
-    alumux.sel = h00;
+    alumux.score = h00;
+    alumux.mole = h00;
+    alumux.scoreaddc = h1;
+    alumux.molemod = 4b1010;
+    alumux.asel = h0;
+    alumux.bsel = h0;
     
     reset_cond.in = ~rst_n;   // input raw inverted reset signal
     rst = reset_cond.out;     // conditioned reset
@@ -120,15 +121,19 @@ module mojo_top (
     //io_led = io_dip;   // connect the DIP switches to the LEDs
    
     
-    
     shiwei = moleLeft.q / 10; //get the decade of the number left of moles for display
     
-    alumux.c = moleLeft.q;
-    alumux.d = 4b1010;
-    alumux.sel = 1;  //mod 
-    gewei = alumux.out[3:0];  //get the unit of  the number of moles left for display, make use of ALU function mod
     
-    //gewei = moleLeft.q - (moleLeft.q / 10 * 10);  //original equation
+    if(oState.q != oState.CHECK){
+      alumux.mole = moleLeft.q;
+      alumux.molemod = 4b1010;
+      alumux.asel = h1;
+      alumux.bsel = h1;
+      gewei = alumux.out[3:0];
+    }else{
+        gewei = moleLeft.q - (moleLeft.q / 10 * 10);  //original equation
+      }
+    
     
     scoreShiwei = score.q / 10;  //get the decade of score for display
     scoreGewei = score.q - (score.q / 10 * 10);   //get the unit of score for display
@@ -158,12 +163,9 @@ module mojo_top (
     if (oState.q!=oState.START){  
       
       halfsecond.d = halfsecond.q + 1;
-      if (halfsecond.q >= d25000000){  //  0.5 second has passed
+      if (halfsecond.q >= d5000000){  //  0.1 second has passed
         
-        alumux.a = timeCounter.q;
-        alumux.b = 1;
-        alumux.sel = 0;  // SUB
-        timeCounter.d = alumux.out[3:0];
+        timeCounter.d = timeCounter.q - 1;
         halfsecond.d = 32d0;
       }
     }
@@ -294,7 +296,7 @@ module mojo_top (
         }
       oState.CHECKM:
         if (moleLeft.q <= 0){
-          oState.d = oState.END1;
+          oState.d = oState.END;
         }else{
           if(temporaryMole.q[7:0] == 8b00000001 | temporaryMole.q[7:0] ==8b00000010 | temporaryMole.q[7:0] ==8b00000100 | temporaryMole.q[7:0] ==8b00001000 |temporaryMole.q[7:0] == 8b00010000
             | temporaryMole.q[7:0] ==8b00100000 | temporaryMole.q[7:0] ==8b01000000 |temporaryMole.q[7:0] == 8b01000000 )
@@ -384,7 +386,7 @@ module mojo_top (
        else{
           
           if (moleLeft.q == 8b0){
-            oState.d = oState.END1;
+            oState.d = oState.END;
           } else{
             if (button[7:0] != 00000000){
               /* player has entered input */
@@ -407,7 +409,7 @@ module mojo_top (
         }
         else{
          if (moleLeft.q == 8b0){
-            oState.d = oState.END1;
+            oState.d = oState.END;
           } else{
           if (button[7:0] != 00000000){
             /* player has entered input */
@@ -428,7 +430,7 @@ module mojo_top (
         }
         else{
          if (moleLeft.q == 8b0){
-            oState.d = oState.END1;
+            oState.d = oState.END;
           } else{
           if (button[7:0] != 00000000){
             /* player has entered input */
@@ -449,7 +451,7 @@ module mojo_top (
         }
         else{
          if (moleLeft.q == 8b0){
-            oState.d = oState.END1;
+            oState.d = oState.END;
           } else{
           if (button[7:0] != 00000000){
             /* player has entered input */
@@ -468,7 +470,13 @@ module mojo_top (
           if (led_pattern.q[i] == 1 && buttons.button_pressed[i] == 1) {  // only does check if input is 1
             led_pattern.d[i] = 0;  // set the led_pattern to 0
             /* increment score by 1 */
-            score.d = score.q + 1;
+            
+            //original equation: score.d = score.q + 1;
+            alumux.score = score.q;
+            alumux.scoreaddc = h1;
+            alumux.asel = h0;
+            alumux.bsel = h0;
+            score.d = alumux.out[3:0];
           }
         }
         
@@ -489,29 +497,18 @@ module mojo_top (
         }
       
       
-      oState.END1:
+      oState.END:
         led_pattern.d = 8b0000000;
         getRdmNum.d = 0;
         gameInitializer.d = 0;
         
         if (buttons.button_pressed != 8b00000000){ 
-            oState.d = oState.END2;
+            oState.d = oState.RESET;
           }
         
+   
         
-        oState.END2:
-        led_pattern.d = 8b00000000;
-        getRdmNum.d = 0;
-        gameInitializer.d = 0;
-
-        
-        if (buttons.button_pressed != 8b00000000){  // press button to initialise the game
-                    
-            oState.d = oState.END3;
-          }
-        
-        
-        oState.END3:
+        oState.RESET:
         led_pattern.d = 8b00000000;
         getRdmNum.d = 0;
         gameInitializer.d = 0;

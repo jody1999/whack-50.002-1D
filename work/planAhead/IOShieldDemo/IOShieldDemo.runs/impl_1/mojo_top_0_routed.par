@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-DESKTOP-AS6ELA8::  Thu Dec 06 23:13:24 2018
+DESKTOP-AS6ELA8::  Fri Dec 07 12:44:57 2018
 
 par -intstyle pa -w -mt on mojo_top_0.ncd mojo_top_0_routed.ncd 
 
@@ -21,16 +21,16 @@ Device speed data version:  "PRODUCTION 1.23 2013-10-13".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                   286 out of  11,440    2%
-    Number used as Flip Flops:                 286
+  Number of Slice Registers:                   278 out of  11,440    2%
+    Number used as Flip Flops:                 278
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        752 out of   5,720   13%
-    Number used as logic:                      737 out of   5,720   12%
-      Number using O6 output only:             404
+  Number of Slice LUTs:                        703 out of   5,720   12%
+    Number used as logic:                      687 out of   5,720   12%
+      Number using O6 output only:             378
       Number using O5 output only:             171
-      Number using O5 and O6:                  162
+      Number using O5 and O6:                  138
       Number used as ROM:                        0
     Number used as Memory:                       4 out of   1,440    1%
       Number used as Dual Port RAM:              0
@@ -39,18 +39,18 @@ Slice Logic Utilization:
         Number using O6 output only:             0
         Number using O5 output only:             0
         Number using O5 and O6:                  4
-    Number used exclusively as route-thrus:     11
+    Number used exclusively as route-thrus:     12
       Number with same-slice register load:      1
-      Number with same-slice carry load:        10
+      Number with same-slice carry load:        11
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   252 out of   1,430   17%
-  Number of MUXCYs used:                       472 out of   2,860   16%
-  Number of LUT Flip Flop pairs used:          767
-    Number with an unused Flip Flop:           489 out of     767   63%
-    Number with an unused LUT:                  15 out of     767    1%
-    Number of fully used LUT-FF pairs:         263 out of     767   34%
+  Number of occupied Slices:                   231 out of   1,430   16%
+  Number of MUXCYs used:                       448 out of   2,860   15%
+  Number of LUT Flip Flop pairs used:          710
+    Number with an unused Flip Flop:           441 out of     710   62%
+    Number with an unused LUT:                   7 out of     710    1%
+    Number of fully used LUT-FF pairs:         262 out of     710   36%
     Number of slice register sites lost
       to control set restrictions:               0 out of  11,440    0%
 
@@ -97,27 +97,27 @@ PAR will use up to 2 processors
 Starting Multi-threaded Router
 
 
-Phase  1  : 3594 unrouted;      REAL time: 4 secs 
+Phase  1  : 3260 unrouted;      REAL time: 4 secs 
 
-Phase  2  : 3052 unrouted;      REAL time: 4 secs 
+Phase  2  : 2739 unrouted;      REAL time: 4 secs 
 
-Phase  3  : 940 unrouted;      REAL time: 5 secs 
+Phase  3  : 787 unrouted;      REAL time: 5 secs 
 
-Phase  4  : 1084 unrouted; (Setup:86206, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+Phase  4  : 947 unrouted; (Setup:63986, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 
 Updating file: mojo_top_0_routed.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Setup:86087, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
+Phase  5  : 0 unrouted; (Setup:64248, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
-Phase  6  : 0 unrouted; (Setup:85623, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  6  : 0 unrouted; (Setup:63964, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
 
-Phase  7  : 0 unrouted; (Setup:85623, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  7  : 0 unrouted; (Setup:63964, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
 
-Phase  8  : 0 unrouted; (Setup:85623, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  8  : 0 unrouted; (Setup:63964, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
 
-Phase  9  : 0 unrouted; (Setup:85623, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  9  : 0 unrouted; (Setup:63964, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
 
-Phase 10  : 0 unrouted; (Setup:83383, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase 10  : 0 unrouted; (Setup:61724, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
 Total REAL time to Router completion: 9 secs 
 Total CPU time to Router completion (all processors): 10 secs 
 
@@ -130,9 +130,9 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|           clk_BUFGP | BUFGMUX_X2Y11| No   |   86 |  0.110     |  1.502      |
+|           clk_BUFGP | BUFGMUX_X2Y11| No   |   84 |  0.112     |  1.503      |
 +---------------------+--------------+------+------+------------+-------------+
-|         M_ctr_value |         Local|      |    3 |  0.000     |  1.095      |
+|         M_ctr_value |         Local|      |    4 |  0.069     |  1.486      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -143,7 +143,7 @@ the minimum and maximum path delays which includes logic delays.
 * The fanout is the number of component pins not the individual BEL loads,
 for example SLICE loads not FF loads.
 
-Timing Score: 83383 (Setup: 83383, Hold: 0, Component Switching Limit: 0)
+Timing Score: 61724 (Setup: 61724, Hold: 0, Component Switching Limit: 0)
 
 WARNING:Par:468 - Your design did not meet timing.  The following are some suggestions to assist you to meet timing in your design.
 
@@ -170,8 +170,8 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-* TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH | SETUP       |   -20.897ns|    40.897ns|       4|       83383
-   50%                                      | HOLD        |     0.440ns|            |       0|           0
+* TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH | SETUP       |   -15.454ns|    35.454ns|       4|       61724
+   50%                                      | HOLD        |     0.420ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -185,7 +185,7 @@ All signals are completely routed.
 Total REAL time to PAR completion: 9 secs 
 Total CPU time to PAR completion (all processors): 10 secs 
 
-Peak Memory Usage:  317 MB
+Peak Memory Usage:  306 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.
